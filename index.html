@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f6fb">
+<title>Illumine · Classroom</title>
+<style>
+:root{--ink:#211934;--muted:#655e75;--purple:#5735bd;--subtle:#eee8fc;--stroke:#e6e0ef;--page:#f8f7fb;--white:#fff;--mint:#dff4e8;--green:#245c46;--peach:#ffeedb;--brown:#844a24}
+*{box-sizing:border-box}body{margin:0;background:#eae5f4;color:var(--ink);font:16px/1.42 system-ui,-apple-system,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:default}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #8861df;outline-offset:2px}h1,h2,p{margin:0}h1{font-size:clamp(1.9rem,7vw,2.6rem);letter-spacing:-.055em;line-height:1.06}h2{font-size:1.1rem;letter-spacing:-.025em}.app{width:min(100%,480px);margin:auto;min-height:100dvh;background:var(--page);display:flex;flex-direction:column}.bar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:58px;padding:4px 13px;background:var(--page);border-bottom:1px solid var(--stroke)}.brand{display:flex;align-items:center;gap:7px;font-weight:850;font-size:1.25rem;letter-spacing:-.05em}.brand span{display:grid;place-items:center;width:29px;height:29px;border-radius:9px;background:var(--purple);color:white;font-size:1rem}.main{flex:1;padding:15px 14px 23px}.headline{margin:7px 0 14px}.headline h1{margin-bottom:4px}.small{font-size:.83rem;color:var(--muted)}.label{font-size:.85rem;font-weight:730;display:block}.btn{border:1px solid var(--stroke);border-radius:11px;min-height:44px;padding:7px 11px;color:var(--ink);background:white;font-size:.88rem;font-weight:720}.primary{background:var(--purple);border-color:var(--purple);color:white}.quiet{background:transparent;border-color:transparent;color:var(--purple)}.wide{width:100%}.icon{width:44px;font-size:1.35rem;padding:0}.line,.between{display:flex;align-items:center;gap:7px}.between{justify-content:space-between}.stack{display:grid;gap:9px}.card{border:1px solid var(--stroke);border-radius:15px;background:white;overflow:hidden}.pad{padding:12px}.login{padding:25px 17px}.login-hero{background:#e9e0fb;border-radius:19px;padding:19px;margin-bottom:16px;position:relative;overflow:hidden}.login-hero h1{margin:9px 0 6px}.login-hero p{max-width:250px;color:#51436c}.hero-mark{position:absolute;right:12px;bottom:3px;font-size:4.4rem;color:#bba4eb;line-height:1;pointer-events:none}.text-field,textarea{width:100%;padding:10px 11px;min-height:44px;border:1px solid var(--stroke);border-radius:10px;background:#fff;color:var(--ink);display:block;margin-top:4px}textarea{min-height:64px}.notice,.error{padding:8px 10px;border-radius:9px;background:var(--subtle);color:#482d92;font-size:.83rem}.error{color:#902b46;background:#fce8ee}.quick{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px}.quick button{text-align:left;min-height:68px;padding:9px 10px}.nap-action{background:var(--subtle);border-color:#e3d7fa;color:#492c91}.group-action{background:var(--mint);border-color:#d5eadf;color:var(--green)}.quick small{display:block;font-weight:550;font-size:.72rem;margin-top:2px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.student{aspect-ratio:1;min-width:0;width:100%;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;text-align:center;border:1px solid var(--stroke);border-radius:15px;background:white;color:var(--ink);padding:6px;line-height:1.23}.student strong{font-size:clamp(.84rem,4vw,.99rem)}.student[aria-pressed=true]{border:2px solid var(--purple);background:#f0eafb}.select-mark{position:absolute;right:7px;top:7px;width:22px;height:22px;display:grid;place-items:center;border-radius:50%;border:1px solid #bcb2cd;background:white;color:var(--purple);font-size:.8rem}.avatar{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:#e9defb;color:#503389;font-weight:800;letter-spacing:-.025em}.avatar.hero{width:58px;height:58px;font-size:1.22rem}.shade1{background:#e2f1ea;color:#2c604b}.shade2{background:#f8e8d9;color:#854e29}.shade3{background:#e5ebff;color:#3c508d}.pill{display:inline-block;white-space:nowrap;padding:3px 7px;border-radius:20px;background:#eeebf3;color:#564d63;font-size:.7rem;font-weight:730}.asleep{background:var(--subtle);color:#4c328c}.awake{background:var(--mint);color:var(--green)}.no-nap{background:var(--peach);color:var(--brown)}.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:8px 0}.tabs button{padding-inline:3px;line-height:1.17;font-size:.8rem}.tabs button small{display:block;margin-top:3px;font-size:.66rem}.tabs [aria-pressed=true],.chosen{border-color:var(--purple);color:var(--purple);background:var(--subtle)}.row{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:8px 10px;min-height:47px;border-bottom:1px solid var(--stroke)}.row:last-child{border-bottom:0}.row .small{font-size:.75rem}.row .btn{flex-shrink:0}.section{margin-top:14px}.footer{position:sticky;bottom:0;z-index:2;background:var(--page);border-top:1px solid var(--stroke);padding:8px 14px calc(8px + env(safe-area-inset-bottom))}.progress{height:5px;background:var(--stroke);border-radius:10px;margin-bottom:9px;overflow:hidden}.progress span{display:block;height:100%;background:var(--purple)}.status-choice{width:100%;min-height:58px;text-align:left;font-size:1rem}.status-choice small{display:block;font-size:.76rem;font-weight:500;color:var(--muted);margin-top:2px}.media{width:100%;max-height:310px;display:block;object-fit:contain;background:#eee8fa}.media-preview{background:white;border:1px solid var(--stroke);border-radius:14px;overflow:hidden}.media-preview p{padding:8px 10px}.capture{min-height:108px;display:grid;place-items:center;text-align:center;background:#e9f5ee;border:1px solid #dbeee3;border-radius:15px;padding:10px}.capture .line{justify-content:center;flex-wrap:wrap}.review-strip{padding:5px 0}.review-strip p{font-size:.79rem;color:var(--muted);overflow-wrap:anywhere}.timeline-title{margin:13px 0 6px}.spacer{height:5px}dialog{position:fixed;inset:auto 0 0;margin:0 auto;width:min(100%,480px);max-width:none;background:var(--page);color:var(--ink);border:1px solid var(--stroke);border-radius:17px 17px 0 0;padding:14px 14px calc(14px + env(safe-area-inset-bottom));max-height:86dvh}dialog::backdrop{background:#21163366}.toast{position:fixed;bottom:70px;left:50%;transform:translateX(-50%);z-index:3;width:max-content;max-width:calc(100vw - 28px);padding:8px 10px;border-radius:10px;background:#362756;color:white;font-size:.84rem}.toast:empty,[hidden]{display:none!important}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}@media(min-width:481px){.app{box-shadow:0 0 50px #32234620}}@media(max-width:350px){.student .avatar{width:41px;height:41px}.quick small{font-size:.66rem}.btn{padding-inline:8px}}
+
+/* Classroom sections and sleep-check states */
+.class-section{margin-top:19px}.class-section h2{margin:0 0 8px}.class-section .quick{margin-bottom:0}
+.nap-hero{background:#f0eafb;border-color:#e5d9f6}.nap-hero h2{margin-bottom:4px}.nap-hero .primary{margin-top:8px}
+.nap-state{display:flex;align-items:center;gap:5px;flex-wrap:wrap}.nap-overdue{background:#fce8ee;color:#942e4b}.nap-soon{background:#fff0df;color:#7b4919}
+.nap-row .line{min-width:0}.nap-row strong{display:block;font-size:.9rem}.nap-row .small{font-size:.77rem}
+.nap-choices{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}.nap-choice{position:relative;flex:1}
+.nap-choice input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.nap-choice span{min-height:44px;display:grid;place-items:center;text-align:center;background:white;border:1px solid var(--stroke);border-radius:10px;padding:6px;font-size:.8rem;font-weight:700}
+.nap-choice input:checked+span{border-color:var(--purple);background:var(--subtle);color:var(--purple)}
+.nap-choice input:focus-visible+span{outline:3px solid #8861df;outline-offset:2px}
+.nap-fields{border:0;padding:0;margin:0;min-width:0}.nap-fields legend{font-size:.85rem;font-weight:750;padding:0}
+.nap-time{display:flex;align-items:center;justify-content:space-between;gap:6px}.nap-time .text-field{width:auto;margin:0}
+.nap-inline{display:flex;align-items:center;gap:4px;flex-wrap:wrap}.nap-log{display:grid;gap:5px}.nap-log .row{align-items:flex-start}
+.nap-sub{margin:14px 0 6px}.quiet-tight{padding-inline:5px}.nap-due-summary{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+/* Mobile layout, color, and component rules */
+:root{--ink:#241936;--muted:#655b73;--purple:#5733aa;--subtle:#efe8fc;--stroke:#e6e0ed;--page:#f9f8fb;--mint:#e4f3eb;--green:#235c47;--peach:#f8eadb;--brown:#784a28;--gutter:16px;--shell:440px}
+body{background:#eeeaf4}
+.app{width:min(100%,var(--shell))}
+.bar,.main,.footer{width:100%}
+.bar{display:grid;grid-template-columns:minmax(65px,1fr) minmax(0,auto) minmax(65px,1fr);min-height:60px;padding:4px var(--gutter);background:var(--page)}
+.bar-leading,.bar-trailing{display:flex;align-items:center;min-width:0}
+.bar-leading{justify-content:flex-start}.bar-trailing{justify-content:flex-end}
+.bar-title{justify-self:center;min-width:0;text-align:center;font-size:.91rem;font-weight:750;line-height:1.15}
+.brand{font-size:1.24rem;letter-spacing:-.065em}.brand span{width:25px;height:25px;border-radius:8px}
+.bar .quiet{padding-inline:0;white-space:nowrap}.bar .icon{background:#fff;border-color:var(--stroke);font-size:1rem}
+.main{padding:17px var(--gutter) 24px}
+.headline{text-align:center;margin:5px 0 17px}.headline h1{font-size:clamp(1.7rem,7.5vw,2.35rem);line-height:1.08;letter-spacing:-.045em;margin:0 0 6px}.headline p{max-width:32ch;margin-inline:auto;line-height:1.4}
+.card,.media-preview{border-radius:16px}
+.btn{border-radius:11px;line-height:1.22}.primary{min-height:48px}.btn.primary:active{background:#442583}
+.login{padding-top:24px}.login-inner{max-width:350px;margin-inline:auto}
+.login-hero{background:#eee7fa;border:1px solid #e8dff7;border-radius:20px;padding:21px 14px 19px;text-align:center;margin-bottom:13px}
+.login-hero h1{font-size:clamp(1.8rem,8vw,2.3rem);margin:0 0 6px}.login-hero p{max-width:29ch;margin-inline:auto;font-size:.88rem}
+.login-form{padding:14px;background:#fff;border:1px solid var(--stroke);border-radius:16px}
+.login-form .between{flex-wrap:wrap;column-gap:3px}.login-form .quiet{padding-inline:4px}.login-form .text-field{background:#fbfaff}
+.classroom .headline{margin:10px 0 16px}
+.quick{gap:8px;margin-bottom:13px}
+.quick button{min-height:67px;text-align:center;padding:8px 6px;font-size:.9rem;border-radius:14px}.quick small{font-size:.75rem}
+.grid{gap:9px}
+.student{border-radius:16px;gap:7px;padding:8px;background:#fff}
+.student .avatar{width:46px;height:46px;border-radius:14px}
+.student strong{font-size:clamp(.85rem,4vw,1rem);line-height:1.18}
+.student .small,.student .pill{font-size:.76rem}
+.student[aria-pressed=true]{border-color:var(--purple);box-shadow:inset 0 0 0 1px var(--purple)}
+.identity{display:grid;justify-items:center;gap:8px}
+.identity .avatar.hero{border-radius:16px}
+.identity .headline{margin:0 0 16px}
+.check-context{padding:12px;text-align:center}
+.check-context h1{font-size:clamp(1.68rem,7vw,2.14rem)}
+.check-context .identity{margin:10px 0 7px}
+.status-choice{padding-inline:13px;min-height:55px}
+.tabs{gap:5px;margin:0 0 10px}.tabs button{border-radius:10px}
+.footer{padding-inline:var(--gutter);background:var(--page)}
+.capture{min-height:128px;text-align:center;border-radius:16px}
+.capture .section{margin-top:9px}
+.media-preview img,.media-preview video{max-height:260px}
+@media(min-width:441px){.app{box-shadow:0 0 44px #2f204d18}}
+@media(max-width:359px){:root{--gutter:12px}.bar{grid-template-columns:minmax(57px,1fr) minmax(0,auto) minmax(57px,1fr)}.grid{gap:7px}.student{padding:5px;gap:5px}.student .avatar{width:40px;height:40px}.login-form{padding:11px}}
+
+
+/* Classroom home uses one visual hierarchy for identity, actions and roster. */
+.official-wordmark{display:block;width:106px;height:auto}
+.bar-title .official-wordmark{width:100px}
+.app.classroom{height:100dvh;min-height:0;overflow:hidden;background:#f7f6fa}
+.classroom-header{display:flex;flex:none;align-items:center;justify-content:space-between;gap:8px;padding:8px var(--gutter);background:white;border-bottom:1px solid #ece7f0}
+.teacher-id{appearance:none;display:flex;align-items:center;gap:7px;min-height:54px;min-width:0;padding:4px 0;border:0;background:transparent;color:var(--ink);text-align:left}
+.teacher-id h1{font-size:clamp(1.18rem,5.5vw,1.46rem);line-height:1.12;letter-spacing:-.045em}
+.teacher-id p{font-size:.75rem;color:var(--muted);margin-top:4px}
+.teacher-name{display:flex;align-items:center;gap:5px;border:0;background:none;padding:0;color:inherit;font:inherit;letter-spacing:inherit;min-height:44px;margin:-8px 0}
+.account-chevron{color:var(--muted);font-size:.76rem}
+.classroom-header .official-wordmark{width:clamp(88px,27vw,112px);flex-shrink:0}
+.classroom .main{display:grid;grid-template-rows:auto minmax(0,1fr);gap:14px;min-height:0;padding-top:13px;padding-bottom:0}
+.classroom .main h2{font-size:1rem;letter-spacing:-.018em}
+.classroom .quick{margin:8px 0 0;gap:9px}
+.classroom .quick-link,.profile-actions .quick-link{display:flex;align-items:center;gap:9px;text-align:left;min-height:84px;padding:10px;border-radius:14px}
+.quick-link span:last-child{min-width:0}
+.quick-link strong,.quick-link small{display:block;line-height:1.16}
+.quick-link small{margin-top:3px;font-size:.71rem}
+.quick-icon{display:grid;place-items:center;width:34px;height:34px;flex:0 0 34px;border-radius:9px;background:#ffffffb8;font-size:1.06rem}
+.classroom .nap-action{background:#eee7fc;color:#473280;border-color:#e8defa}
+.classroom .group-action{background:#e6f7fb;color:#1c5264;border-color:#dbf0f6}
+.profile-pane{display:flex;flex-direction:column;min-height:0;border-top:1px solid #e7e2ec;padding-top:10px}
+.profile-pane h2{flex:none;margin-bottom:7px}
+.profile-scroll{overflow:auto;overscroll-behavior:contain;min-height:0;padding:1px 1px calc(12px + env(safe-area-inset-bottom))}
+.profile-scroll .grid{gap:8px}
+.profile-scroll .student{aspect-ratio:auto;min-height:106px;justify-content:center;align-items:flex-start;text-align:left;padding:10px;gap:8px;border-radius:14px;border-color:#e9e3ef;box-shadow:0 1px 2px #2d1d4710}
+.profile-scroll .student:hover{border-color:#bca9df}
+.profile-scroll .student .avatar{width:44px;height:44px;border-radius:13px}
+.profile-portrait{object-fit:cover;display:block}
+.profile-scroll .student strong{font-size:.94rem}
+.student-name{width:100%;display:flex;justify-content:space-between;align-items:center;gap:5px}.student-disclose{flex:none;color:var(--purple);font-size:1.17rem;font-weight:600;line-height:.85}
+.profile-links .row{align-items:center}
+@media(max-width:359px){.quick-link{gap:5px;padding-inline:6px}.quick-icon{width:25px;height:25px;flex-basis:25px}.quick-link small{font-size:.65rem}.profile-scroll .student{padding:9px}.teacher-id p{font-size:.7rem}}
+@media(max-height:560px){.classroom-header{padding-block:4px}.classroom .main{padding-top:7px;gap:8px}.classroom .quick-link{min-height:62px}.profile-pane{padding-top:5px}}
+
+.nap-rollup{margin:0 0 8px;align-items:baseline}
+.nap-rollup time{font-variant-numeric:tabular-nums;white-space:nowrap}
+.nap-row .stack{gap:2px;justify-items:stretch}
+
+/* Check detail uses the same cards, type and status colors as the classroom. */
+.sleep-context{padding:12px}
+.sleep-context h1{font-size:clamp(1.23rem,5.5vw,1.5rem);line-height:1.13;overflow-wrap:anywhere}
+.sleep-context .line{min-width:0;gap:8px}
+.sleep-context .avatar{width:37px;height:37px;flex:0 0 37px;border-radius:11px}
+.sleep-context .pill{flex:none}
+.sleep-history{border-top:1px solid var(--stroke);margin-top:10px;padding-top:8px}
+.sleep-history .small{font-size:.76rem}
+.sleep-history .between{align-items:baseline;flex-wrap:wrap;gap:3px 9px}
+.sleep-rail{position:relative;height:22px;margin:4px 7px 0}
+.sleep-rail::before{content:"";position:absolute;inset:9px 0 auto;height:4px;border-radius:5px;background:#ebe7f0}
+.sleep-fill{position:absolute;top:9px;height:4px;border-radius:5px;background:#6946b4}
+.sleep-tick{position:absolute;top:11px;transform:translate(-50%,-50%);display:grid;place-items:center;width:16px;height:16px;border:1px solid white;border-radius:50%;background:#247454;color:white;font-size:.67rem;font-weight:800;line-height:1}
+.sleep-rail-labels{margin:0 5px;font-size:.68rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.sleep-check-times{margin-top:6px;line-height:1.32}
+
+.observed-picker{border-bottom:1px solid var(--stroke);padding-bottom:7px}
+.observed-button{display:flex;align-items:center;gap:8px;background:#f3eefb;border-color:#e6dcf7;color:#473280;font-variant-numeric:tabular-nums}
+.observed-button .observed-change{color:var(--purple);font-size:.73rem;font-weight:650}
+.minute-wheel-wrap{position:relative;margin:9px 0}
+.minute-wheel-wrap::after{content:"";position:absolute;inset:88px 0 auto;height:44px;border:1px solid #ded0f5;border-radius:10px;pointer-events:none}
+.minute-wheel{height:220px;overflow-y:auto;overscroll-behavior:contain;scroll-snap-type:y mandatory;padding:88px 0;scrollbar-width:none;position:relative}
+.minute-wheel::-webkit-scrollbar{display:none}
+.minute-option{width:100%;height:44px;scroll-snap-align:center;border:0;background:transparent;border-radius:10px;color:var(--muted);font-size:1rem;font-variant-numeric:tabular-nums}
+.minute-option[aria-pressed=true]{background:var(--subtle);color:var(--purple);font-weight:780}
+.minute-option small{margin-left:7px;font-size:.73rem}
+
+/* Student profile */
+.profile-alert{background:#fff0f3;border:1px solid #f3d1db;border-left:4px solid #a53b56;border-radius:12px;padding:9px 11px;color:#7d2240}
+.profile-alert strong{display:block;font-size:.97rem}
+.profile-alert .small{color:#7d2240;font-size:.73rem;font-weight:720}
+.student-hero{display:grid;justify-items:center;background:#f2edf9;border:1px solid #ebe2f5;border-radius:17px;margin-top:10px;padding:13px 11px 10px;text-align:center}
+.student-hero .student-photo,.student-hero .avatar.hero{width:76px;height:76px;border-radius:20px;object-fit:cover;border:2px solid white}
+.student-hero h1{margin:8px 0 9px;font-size:clamp(1.65rem,7vw,2.05rem)}
+.profile-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;margin:0;border-top:1px solid #e7deef;padding-top:8px;gap:8px}
+.profile-facts dt{color:var(--muted);font-size:.72rem}
+.profile-facts dd{margin:2px 0 0;font-size:.84rem;font-weight:710}
+.profile-action-group{margin-top:11px}
+.profile-action-group h2{font-size:1rem;margin-bottom:6px}
+.profile-actions{margin:0;gap:8px}
+.profile-actions .quick-link{min-width:0}
+.profile-actions .secondary-action{background:#f3f0f7;border-color:#e9e3ef;color:#514460}
+.meal-history{margin-top:13px}
+.meal-history h2{margin-bottom:6px}
+.meal-history .history-row{padding:7px 9px}
+.meal-history .history-row summary{min-height:40px}
+.meal-day-menus{display:grid;gap:7px;padding:4px 0 6px}
+.meal-menu-detail p{padding:8px 9px;font-size:.84rem}
+.meal-menu-detail .media{aspect-ratio:16/9}
+.meal-day-empty{padding:3px 0 5px}
+.student-photo{display:block}
+
+/* Student care, seven-day nap history, and the activity feed */
+.care-card{margin-top:9px;padding:10px}
+.care-card h2{font-size:1rem;margin-bottom:7px}
+.care-facts{display:grid;grid-template-columns:1fr 1fr;gap:0 8px;margin:0}
+.care-facts>div{padding:6px 2px;border-top:1px solid var(--stroke)}
+.care-facts>div.full{grid-column:1/-1}
+.care-facts dt{font-size:.72rem;color:var(--muted)}
+.care-facts dd{margin:2px 0 0;font-size:.86rem;font-weight:720}
+.care-facts .care-allergy{padding:7px 9px;background:#fff0f3;border:1px solid #f3d1db;border-radius:9px;margin-bottom:5px;color:#7d2240}
+.care-allergy dt{color:#7d2240;font-weight:680}
+.care-contact{display:block;font-weight:550;color:var(--muted);font-size:.8rem}
+.history-card{margin-bottom:10px}
+.history-row{padding:8px 9px;border-bottom:1px solid var(--stroke)}
+.history-row:last-child{border-bottom:0}
+.history-row summary{display:flex;align-items:center;justify-content:space-between;gap:6px;cursor:pointer;font-size:.88rem;min-height:32px;list-style:none}
+.history-row summary::-webkit-details-marker{display:none}
+.history-row summary::after{content:"›";font-size:1.03rem;color:var(--purple)}
+.history-row[open] summary::after{transform:rotate(90deg)}
+.history-row summary span:first-child{flex:1}
+.history-row summary .small{display:block}
+.history-row .nap-log{margin-top:5px}
+.feed{display:grid;gap:11px}
+.feed-item{border:1px solid var(--stroke);border-radius:15px;overflow:hidden;background:white}
+.feed-author{display:flex;align-items:center;gap:7px;padding:8px 10px}
+.feed-avatar{width:31px;height:31px;border-radius:10px;background:var(--subtle);color:var(--purple);display:grid;place-items:center;font-size:.68rem;font-weight:780;flex:none}
+.feed-author strong,.feed-author small{display:block}
+.feed-remove{margin-left:auto;flex:none;padding-inline:5px;color:#8d3450;font-size:.76rem}
+.btn.remove-confirm{background:#8d3450;border-color:#8d3450;color:white}
+.feed-author strong{font-size:.85rem}
+.feed-author small{color:var(--muted);font-size:.72rem}
+.feed-media .media{aspect-ratio:4/3;object-fit:cover;max-height:none}
+.feed-caption{padding:7px 10px 10px;font-size:.86rem}
+.feed-caption strong{display:block;margin-bottom:3px}
+
+/* Meal sharing and individual intake */
+.meal-action{background:#faf0df;color:#754823;border-color:#f0e3cc}
+.lunch-tabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:#eeeaf4;border-radius:12px;padding:4px;margin:0 0 12px}
+.lunch-tabs .btn{background:transparent;border-color:transparent}
+.lunch-tabs .btn[aria-pressed=true]{background:white;border-color:var(--stroke);color:var(--purple)}
+.lunch-intake-row{padding:9px 10px;border-bottom:1px solid var(--stroke)}
+.lunch-intake-row:last-child{border-bottom:0}
+.lunch-intake-row .meal-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:6px 0 0}
+.lunch-intake-row .meal-actions .btn{padding:4px 2px;font-size:.75rem;line-height:1.14}
+.lunch-photo-actions{justify-content:center;flex-wrap:wrap}
+.meal-actions{display:flex;flex-wrap:wrap;gap:5px}
+.meal-actions .btn[aria-pressed=true]{background:#f7e9d1;color:#754823;border-color:#ceab77}
+.meal-share-photo .media{aspect-ratio:16/9;max-height:210px}
+.intake-panel{padding:11px}
+.intake-panel h2{margin-bottom:3px}
+.intake-panel .meal-actions{margin-top:7px}
+.intake-panel .meal-actions .btn{flex:1 1 auto}
+.care-facts .care-allergy{background:#fcfaf6;border:0;border-top:1px solid var(--stroke);border-radius:0;padding:6px 2px;margin:0;color:var(--ink)}
+.care-allergy dt{color:#775532;font-weight:700}
+.care-allergy dd{display:inline-block;background:#f7eddb;color:#714626;border-radius:7px;padding:1px 6px}
+.meal-allergy{border-left:3px solid #c99a5c;background:#fcf7ef;border-top-color:#f2e7d6;border-right-color:#f2e7d6;border-bottom-color:#f2e7d6;color:#714626}
+.meal-allergy .small{color:#775532}
+
+/* Nap record groups controls with the corresponding day. */
+.active-nap-day{background:#f2ecfb;border-color:#e4d9f5;padding:11px;margin-bottom:8px}
+.active-nap-day .nap-inline{margin:8px 0 0}
+.active-nap-day .nap-inline .btn{flex:1}
+.active-nap-log{margin-top:8px;border-top:1px solid #e4d9f5;padding-top:2px}
+.active-nap-log summary{cursor:pointer;color:var(--purple);font-size:.86rem;font-weight:750;padding:6px 0;min-height:36px}
+.active-nap-log .nap-log{margin-top:2px}
+.nap-log .check-row{display:block;padding:8px 9px}
+.check-row .between{align-items:flex-start;flex-wrap:wrap;gap:4px}
+.check-meta{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3px 7px;margin-top:4px;color:var(--muted);font-size:.74rem;line-height:1.25}
+.check-meta span:nth-child(even){text-align:right}
+.check-extra{margin-top:4px}
+@media(max-width:340px){.check-meta{font-size:.71rem}.active-nap-day .nap-inline .btn{padding-inline:5px}}
+
+.sent-posts{margin-top:16px}
+.sent-posts h2{margin-bottom:7px}
+.feed-recipients{border-top:1px solid var(--stroke);padding:8px 10px;font-size:.8rem;color:var(--muted)}
+.feed-recipients summary{font-weight:720;color:var(--ink);cursor:pointer;min-height:32px;padding:5px 0}
+.feed-recipients ul{margin:5px 0 2px;padding-left:15px}
+.feed-recipients li+li{margin-top:3px}
+</style>
+</head>
+<body>
+<main id="app" class="app"></main>
+<dialog id="dialog" aria-labelledby="dialog-title"></dialog>
+<dialog id="time-dialog" aria-labelledby="minute-wheel-title"></dialog>
+<div id="toast" class="toast" role="status"></div>
+<input id="photo" class="sr" type="file" accept="image/*" capture="environment" tabindex="-1" aria-label="Take photo or choose image">
+<input id="video" class="sr" type="file" accept="video/*" capture="environment" tabindex="-1" aria-label="Record video or choose video">
+<input id="meal-file" class="sr" type="file" accept="image/*" tabindex="-1" aria-label="Choose a meal photo">
+<input id="media-file" class="sr" type="file" accept="image/*,video/*" tabindex="-1" aria-label="Choose media file">
+<script>
+const teacher='Emma Wilson', email='emma@willow.example', password='napdemo123', day='Today';
+const names=['Chandler Reed','Maya Chen','Leo Ortiz','Ava Patel','Noah Brooks','Amelia Reed','Eli Morgan','Mia Bennett','Owen Scott','Ella Rivera'];
+const app=document.querySelector('#app'),dialog=document.querySelector('#dialog'),timeDialog=document.querySelector('#time-dialog'),toast=document.querySelector('#toast');
+const interval=15;
+const childDetails={0:{
+ age:'4 years',bloodGroup:'B positive',allergy:'Peanuts',emergency:{name:'Morgan Reed',relationship:'Parent',phone:'+1 (202) 555-0148'}
+}};
+const foodOptions=['Salad','Beans','Vegetables','Bread'];
+const intakeOptions=['Didn’t eat','Partially ate','Fully ate'];
+const pastIntake={1:'Fully ate',2:'Partially ate',3:'Didn’t eat',5:'Fully ate',6:'Partially ate'};
+const sampleMenus={
+ 1:{caption:'Salad, beans, roasted vegetables, and bread.',photo:true},
+ 3:{caption:'Vegetable soup, bread, and sliced apples.'}
+};
+const emptyMeal=()=>({media:null,foods:new Set(),description:''});
+const demoDay=Date.UTC(2026,10,26);
+const seededActivities=[
+ {id:'sample-blocks',daysAgo:2,heading:'Building together',caption:'Chandler chose the blue blocks and worked with a friend to build a tower.',media:{kind:'image',url:'sample-block-building.jpg',name:'Hands building a colorful tower with wooden blocks'}},
+ {id:'sample-rhymes',daysAgo:3,heading:'Rhymes and rhythm',caption:'We sang familiar nursery rhymes and took turns shaking the instruments.',media:{kind:'video',url:'sample-rhyme-clip.mp4',poster:'sample-rhyme-poster.jpg'}},
+ {id:'sample-story',daysAgo:7,heading:'Story circle',caption:'Chandler joined the group for story time and pointed out the animals in the picture book.',media:{kind:'image',url:'sample-story-circle.jpg',name:'Children sitting on a rug for a classroom story'}}
+];
+const pastNaps={
+ 1:{start:726,end:779,observed:[740,754,769]},
+ 3:{start:732,end:774,observed:[746,760]},
+ 4:{start:722,end:768,observed:[737,752,767]},
+ 6:{start:725,end:780,observed:[740,755,770]}
+};
+const state={now:738,sessions:[
+ [{start:722,checks:[]}],[{start:727,checks:[]}],[{start:732,checks:[]}],
+ [{start:723,checks:[{at:735,due:738,position:'Back',condition:'None observed',breathing:'No labored breathing',by:teacher,logged:735}]}],
+ [{start:721,end:733,checks:[]}]
+ ],view:'login',student:0,mealTab:'menu',mealDraft:emptyMeal(),mealIntake:{0:{status:'Partially ate',at:705}},updates:[],removedActivities:new Set(),draft:{media:null,caption:'',selected:new Set(),student:null},profileScroll:0,seq:0,sent:null};
+while(state.sessions.length<names.length)state.sessions.push([]);
+let toastTimer;
+const activeNap=i=>state.sessions[i].find(n=>n.end==null);
+const lastObservation=n=>n.checks.at(-1)?.at??n.start;
+const nextDue=n=>lastObservation(n)+interval;
+const clockTime=m=>(Math.floor(m/60)%12||12)+':'+String(m%60).padStart(2,'0')+(m>=720?' PM':' AM');
+const inputTime=m=>String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+const ordered=()=>names.map((_,i)=>i).sort((a,b)=>(activeNap(a)?nextDue(activeNap(a)):2000)-(activeNap(b)?nextDue(activeNap(b)):2000));
+function dueLabel(n){
+ const due=nextDue(n);
+ const tone=due<state.now?'nap-overdue':due<=state.now+5?'nap-soon':'';
+ return '<span class="pill '+tone+'">'+(due<state.now?'Overdue · ':due===state.now?'Due now · ':'Due ')+clockTime(due)+'</span>';
+}
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const button=(label,key,style='btn')=>'<button type="button" class="'+style+'" data-go="'+key+'">'+label+'</button>';
+const title=(a,b='')=>'<header class="headline"><h1>'+a+'</h1>'+(b?'<p class="small">'+b+'</p>':'')+'</header>';
+const brand='<img class="official-wordmark" src="illumine-wordmark.svg" width="152" height="54" alt="Illumine">';
+const header=(label='',back='',extra='')=>'<header class="bar"><div class="bar-leading">'+(back?'<button type="button" class="btn icon" data-go="'+back+'" aria-label="Back">←</button>':'')+'</div><div class="bar-title">'+(label||brand)+'</div><div class="bar-trailing">'+extra+'</div></header>';
+const avatar=(i,hero=false)=>'<span class="avatar shade'+i%4+(hero?' hero':'')+'" aria-hidden="true">'+names[i].split(' ').map(v=>v[0]).join('')+'</span>';
+const pill=status=>'<span class="pill '+(status==='Asleep'?'asleep':status==='Awake'?'awake':'')+'">'+(status||'Not recorded')+'</span>';
+const foot=content=>'<footer class="footer">'+content+'</footer>';
+const activityKey=(i,id)=>i+':'+id;
+const parentUpdates=i=>state.updates.filter(u=>u.kind!=='meal'&&u.selected.includes(i)&&!state.removedActivities.has(activityKey(i,u.id)));
+const kidActivities=i=>[...parentUpdates(i),...(i===0?seededActivities.filter(u=>!state.removedActivities.has(activityKey(i,u.id))):[])];
+const groupPosts=()=>state.updates.filter(u=>u.kind==='group');
+const wrap=html=>'<div class="main">'+html+'</div>';
+function announce(text){toast.textContent=text;clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.textContent='',2600)}
+function openView(view){
+ if(state.view==='classroom')state.profileScroll=document.querySelector('.profile-scroll')?.scrollTop??0;
+ state.view=view;render();window.scrollTo(0,0);
+ if(view==='classroom')document.querySelector('.profile-scroll').scrollTop=state.profileScroll;
+}
+function samplePhoto(){
+ const c=document.createElement('canvas');c.width=760;c.height=450;
+ const x=c.getContext('2d');x.fillStyle='#f0e6fb';x.fillRect(0,0,760,450);
+ x.fillStyle='#fdfbf7';x.fillRect(65,48,630,353);
+ const blocks=[['#f2ab82',210,244],['#a99beb',319,244],['#9bd3bd',430,244],['#f2d17d',264,135],['#e99cb1',374,135]];
+ for(const [color,a,b] of blocks){x.fillStyle=color;x.beginPath();x.roundRect(a,b,95,95,14);x.fill()}
+ x.fillStyle='#47356c';x.font='bold 25px system-ui';x.fillText('Block building · Sample photo',185,373);
+ return {kind:'image',url:c.toDataURL(),name:'Sample activity photo'};
+}
+let cachedSampleLunch;
+function sampleMealPhoto(){
+ if(cachedSampleLunch)return cachedSampleLunch;
+ const canvas=document.createElement('canvas');canvas.width=720;canvas.height=420;
+ const x=canvas.getContext('2d');
+ x.fillStyle='#efe9da';x.fillRect(0,0,720,420);
+ x.fillStyle='#e0d4bf';x.beginPath();x.ellipse(360,228,235,152,0,0,Math.PI*2);x.fill();
+ x.fillStyle='#fffaf2';x.beginPath();x.roundRect(132,65,456,277,38);x.fill();
+ const fill=(color,cx,cy,r)=>{x.fillStyle=color;x.beginPath();x.arc(cx,cy,r,0,Math.PI*2);x.fill();};
+ const wedge=(color,cx,cy,w,h)=>{x.fillStyle=color;x.beginPath();x.roundRect(cx,cy,w,h,9);x.fill();};
+ for(const [cx,cy,r] of [[223,147,27],[265,142,23],[247,185,28],[204,193,17],[291,180,16]])fill('#75954f',cx,cy,r);
+ for(const [cx,cy] of [[230,138],[267,179],[213,191],[278,155]])fill('#d56859',cx,cy,8);
+ for(let j=0;j<13;j++)fill(j%2?'#b36f51':'#895440',405+(j%5)*21,135+Math.floor(j/5)*20,10);
+ for(const [cx,cy,w,h,color] of [[204,256,41,13,'#ec9051'],[248,273,64,15,'#e6a061'],[228,232,65,15,'#84a75f'],[197,279,46,12,'#8dab64'],[274,253,33,13,'#e9b257']])wedge(color,cx,cy,w,h);
+ x.save();x.translate(448,265);x.rotate(-.2);wedge('#bc855c',-53,-27,105,59);wedge('#f3d4a4',-46,-21,91,47);x.restore();
+ x.fillStyle='#644b35';x.textAlign='center';x.font='bold 22px system-ui';x.fillText('Sample lunch',360,386);
+ cachedSampleLunch={kind:'image',url:canvas.toDataURL(),name:'Illustrated sample lunch with salad, beans, vegetables, and bread'};
+ return cachedSampleLunch;
+}
+function mediaPreview(m){
+ if(!m)return '';
+ return m.kind==='video'?'<video class="media" controls playsinline preload="metadata" src="'+esc(m.url)+'"'+(m.poster?' poster="'+esc(m.poster)+'"':'')+' aria-label="Activity video"></video>':'<img class="media" src="'+esc(m.url)+'" alt="'+esc(m.name)+'">';
+}
+function tiles(select=false){
+ return '<div class="grid">'+names.map((n,i)=>{
+ const picked=state.draft.selected.has(i);
+ return '<button type="button" class="student" '+(select?'data-pick="'+i+'" aria-pressed="'+picked+'"':'data-student="'+i+'" aria-label="View '+n+'’s profile"')+'>'+
+ (select?'<span class="select-mark" aria-hidden="true">'+(picked?'✓':'')+'</span>':'')+(!select&&i===0?'<img class="avatar profile-portrait" src="sample-chandler-portrait.jpg" alt="" width="44" height="44">':avatar(i))+(select?'<strong>'+n+'</strong>':'<span class="student-name"><strong>'+n+'</strong><span class="student-disclose" aria-hidden="true">›</span></span>')+'</button>';
+ }).join('')+'</div>';
+}
+function login(){
+ return header()+ '<div class="main login"><div class="login-inner"><section class="login-hero"><h1>Teacher sign in</h1><p>Open your classroom to record naps and share the day with families.</p></section>'+
+ '<form id="login-form" class="stack login-form"><label class="label">Email<input class="text-field" type="email" name="email" value="'+email+'" required autocomplete="username"></label>'+
+ '<label class="label">Password<input class="text-field" type="password" name="password" value="'+password+'" required autocomplete="current-password"></label>'+
+ '<div class="small between"><span>Demo credentials are prefilled.</span>'+button('Show password','toggle-password','btn quiet')+'</div><p id="login-error" class="error" hidden>Use the prefilled demo email and password.</p><button class="btn primary wide">Sign in</button></form></div></div>';
+}
+function classroom(){
+ return '<header class="classroom-header"><div class="teacher-id"><div><h1><button type="button" class="teacher-name" data-go="account" aria-label="Open account for '+teacher+'">'+teacher+'<span class="account-chevron" aria-hidden="true">⌄</span></button></h1><p>'+names.length+' assigned students · Willow Room</p></div></div>'+brand+'</header>'+
+ wrap('<section aria-labelledby="quick-actions"><h2 id="quick-actions">Quick actions</h2><div class="quick">'+
+ '<button type="button" class="btn nap-action quick-link" data-go="rounds"><span class="quick-icon" aria-hidden="true">☾</span><span><strong>Nap rounds</strong><small>Sleep checks</small></span></button>'+
+ '<button type="button" class="btn group-action quick-link" data-go="open-group"><span class="quick-icon" aria-hidden="true">＋</span><span><strong>Group update</strong><small>Photo &amp; video</small></span></button><button type="button" class="btn meal-action quick-link" data-go="meal-share"><span class="quick-icon" aria-hidden="true">≡</span><span><strong>Meal status</strong><small>Menu &amp; intake</small></span></button></div></section>'+
+ '<section class="profile-pane" aria-labelledby="profiles"><h2 id="profiles">Student profiles</h2><div class="profile-scroll" tabindex="0" aria-label="Scroll student profiles">'+tiles()+'</div></section>');
+}
+function checkLogRow(c){
+ const status=c.at>c.due?'<span class="pill nap-overdue">Late · Due '+clockTime(c.due)+'</span>':'<span class="pill awake">On time</span>';
+ const distress=c.condition==='None observed'?'No distress observed':c.condition;
+ return '<div class="row check-row"><div class="between"><strong>'+clockTime(c.at)+' · Sleep check</strong>'+status+'</div>'+
+ '<div class="check-meta"><span>Position: '+c.position+'</span><span>'+c.breathing+'</span><span>'+distress+'</span><span>By '+c.by+'</span></div>'+
+ (c.logged!==c.at?'<p class="small check-extra">Entered '+clockTime(c.logged)+'</p>':'')+
+ (c.note?'<p class="small check-extra">'+esc(c.note)+'</p>':'')+'</div>';
+}
+function timeline(i,naps=state.sessions[i]){
+ if(!naps.length)return '<p class="card pad small">No nap events yet.</p>';
+ return '<div class="nap-log">'+naps.map(n=>'<section class="card"><div class="row"><div><strong>'+clockTime(n.start)+'</strong><p class="small">Fell asleep · '+teacher+'</p></div></div>'+
+ n.checks.map(checkLogRow).join('')+
+ (n.end!=null?'<div class="row"><div><strong>'+clockTime(n.end)+'</strong><p class="small">Woke up · '+teacher+'</p>'+(n.end>nextDue(n)?'<p class="small">No check recorded by '+clockTime(nextDue(n))+'</p>':'')+'</div></div>':'')+'</section>').join('')+'</div>';
+}
+function student(){
+ const i=state.student,details=childDetails[i],emergency=details?.emergency;
+ const photo=i===0?'<img class="student-photo" src="sample-chandler-portrait.jpg" alt="" width="76" height="76">':avatar(i,true);
+ const quickLink=(label,description,action,icon,style)=>'<button class="btn quick-link '+style+'" type="button" data-go="'+action+'"><span class="quick-icon" aria-hidden="true">'+icon+'</span><span><strong>'+label+'</strong><small>'+description+'</small></span></button>';
+ return header('Student profile','classroom')+wrap(
+ '<section class="student-hero">'+photo+'<h1>'+names[i]+'</h1><dl class="profile-facts"><div><dt>Classroom</dt><dd>Willow Room</dd></div><div><dt>Class teacher</dt><dd>'+teacher+'</dd></div></dl></section>'+
+ '<section class="card care-card"><h2>Care information</h2><dl class="care-facts"><div class="full '+(details?.allergy?'care-allergy':'')+'"><dt>Allergies</dt><dd>'+(details?.allergy||'No information recorded')+'</dd></div>'+
+ '<div class="full"><dt>Emergency contact</dt><dd>'+(emergency?emergency.name+' · '+emergency.relationship+'<span class="care-contact">'+emergency.phone+'</span>':'Not on file')+'</dd></div>'+
+ '<div><dt>Age</dt><dd>'+(details?.age||'Not on file')+'</dd></div><div><dt>Blood group</dt><dd>'+(details?.bloodGroup||'Not on file')+'</dd></div></dl></section>'+
+ '<section class="profile-action-group" aria-labelledby="student-actions"><h2 id="student-actions">Student actions</h2><div class="quick profile-actions">'+
+ quickLink('Nap record','Last 7 days','student-nap','☾','nap-action')+
+ quickLink('Kid Activity','Updates and photos','student-activity','＋','group-action')+
+ quickLink('Meal status','Lunch intake','student-meals','≡','meal-action')+'</div></section>'+
+ '<section class="profile-action-group" aria-labelledby="student-more"><h2 id="student-more">More</h2><div class="quick profile-actions">'+
+ quickLink('Attendance','Coming soon','attendance-soon','✓','secondary-action')+
+ quickLink('Fee structure','Coming soon','fees-soon','▤','secondary-action')+'</div></section>');
+
+}
+function demoDate(daysAgo){
+ return new Date(demoDay-daysAgo*86400000).toLocaleDateString('en-US',{month:'short',day:'numeric',weekday:'short',timeZone:'UTC'});
+}
+function historyNap(id,ago){
+ const source=id===0?pastNaps[ago]:undefined;
+ if(!source)return [];
+ const {start,end,observed}=source;
+ const checks=observed.map((at,i)=>({at,due:(observed[i-1]??start)+interval,position:'Back',breathing:'No labored breathing',condition:'None observed',by:teacher,logged:at}));
+ return [{start,end,checks}];
+}
+function activeNapDay(i,nap){
+ const checks=nap.checks.length,earlier=state.sessions[i].filter(n=>n.end!=null);
+ return '<section class="card active-nap-day" aria-label="Today’s nap in progress">'+
+ '<div class="between"><h2>Today</h2><span class="pill asleep">In progress</span></div>'+
+ '<div class="between"><p class="small">Asleep since '+clockTime(nap.start)+'</p>'+dueLabel(nap)+'</div>'+
+ '<div class="nap-inline"><button type="button" class="btn primary" data-sleep-check="'+i+'">Log sleep check</button><button type="button" class="btn" data-nap-event="wake:'+i+'">Mark awake</button></div>'+
+ '<details class="active-nap-log"><summary>Check log · '+checks+(checks===1?' check':' checks')+'</summary>'+timeline(i,[nap])+'</details>'+(earlier.length?'<details class="active-nap-log"><summary>Earlier naps today</summary>'+timeline(i,earlier)+'</details>':'')+'</section>';
+}
+function napHistory(i){
+ const active=activeNap(i);
+ return '<h2 class="timeline-title">Last 7 days</h2>'+(active?activeNapDay(i,active):'')+'<div class="card history-card">'+Array.from({length:7},(_,ago)=>{
+ if(ago===0&&active)return '';
+ const naps=ago===0?state.sessions[i]:historyNap(i,ago);
+ const total=naps.reduce((sum,n)=>sum+n.end-n.start,0);
+ const checks=naps.reduce((sum,n)=>sum+n.checks.length,0);
+ const detail=naps.length?clockTime(naps[0].start)+' · '+checks+(checks===1?' check':' checks'):'No nap logged';
+ return '<details class="history-row" '+(ago===0?'open':'')+'><summary><span><strong>'+(ago===0?'Today':demoDate(ago))+'</strong><small class="small">'+detail+'</small></span>'+pill(naps.length?total+' min':'No record')+'</summary>'+
+ (ago===0?'<div class="nap-inline"><button type="button" class="btn primary" data-nap-event="start:'+i+'">Mark asleep</button></div>':'')+timeline(i,naps)+'</details>';
+ }).join('')+'</div>';
+}
+function studentDetail(){
+ return header('Nap record','student')+wrap(title(names[state.student],'Willow Room')+napHistory(state.student));
+}
+const shareDate=new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZone:'Asia/Kolkata'});
+function activityCard(post,meta,action,extra=''){
+ return '<article class="feed-item"><header class="feed-author"><span class="feed-avatar" aria-hidden="true">EW</span><div><strong>'+esc(post.by||teacher)+'</strong><small>'+esc(meta)+'</small></div>'+action+'</header>'+
+ (post.media?'<div class="feed-media">'+mediaPreview(post.media)+'</div>':'')+'<div class="feed-caption">'+
+ (post.heading?'<strong>'+esc(post.heading)+'</strong>':'')+'<p>'+esc(post.caption||'Activity shared with this family.')+'</p></div>'+extra+'</article>';
+}
+function familyActivity(){
+ const i=state.student,events=kidActivities(i);
+ return header('Kid Activity','student')+wrap(title(names[i],'Updates shared with this family')+
+ (events.length?'<div class="feed">'+events.map(u=>{
+ const age=u.daysAgo==null?'Today':u.daysAgo===7?'1 week ago':u.daysAgo+' days ago';
+ const date=u.daysAgo==null?'':demoDate(u.daysAgo)+' · ';
+ return activityCard(u,date+age,'<button type="button" class="btn quiet feed-remove" data-remove-activity="'+esc(u.id)+'">Remove</button>');
+ }).join('')+'</div>':'<div class="card pad small">No updates shared with this family yet.</div>'))+
+ foot(button('Create update','open-individual','btn primary wide'));
+}
+function groupLog(){
+ const posts=groupPosts();
+ return '<section class="sent-posts" aria-labelledby="group-log-title"><h2 id="group-log-title">Sent group updates</h2>'+
+ (posts.length?'<div class="feed">'+posts.map(post=>{
+ const n=post.selected.length;
+ const recipients='<details class="feed-recipients"><summary>Shared with '+n+(n===1?' family':' families')+'</summary><ul>'+
+ post.selected.map(i=>'<li>'+esc(names[i])+'’s family</li>').join('')+'</ul></details>';
+ return activityCard(post,shareDate.format(new Date(post.at)),
+ '<button type="button" class="btn quiet feed-remove" data-delete-group="'+post.id+'">Delete</button>',recipients);
+ }).join('')+'</div>':'<p class="card pad small">No group updates sent yet.</p>')+'</section>';
+}
+function confirmDeleteGroupPost(id){
+ const post=groupPosts().find(u=>u.id===id);
+ if(!post)return;
+ const n=post.selected.length;
+ dialog.innerHTML='<div class="between"><h2 id="dialog-title">Delete this group update?</h2><button type="button" class="btn icon" data-go="close" aria-label="Close">×</button></div>'+
+ '<p class="small section">This removes the post from this log and from the Kid Activity history of '+(n===1?'the family it was shared with.':'all '+n+' families it was shared with.')+'</p>'+
+ '<div class="stack section"><button type="button" class="btn remove-confirm" data-confirm-delete-group="'+id+'">'+(n===1?'Delete for this family':'Delete for all '+n+' families')+'</button>'+button('Cancel','close','btn')+'</div>';
+ dialog.showModal();
+}
+function deleteGroupPost(id){
+ const post=groupPosts().find(u=>u.id===id);
+ if(!post)return;
+ state.updates=state.updates.filter(u=>u!==post);
+ for(const i of post.selected)state.removedActivities.delete(activityKey(i,id));
+ if(state.sent===post)state.sent=null;
+ const url=post.media?.url;
+ if(url?.startsWith('blob:')&&state.draft.media?.url!==url&&state.mealDraft.media?.url!==url&&!state.updates.some(u=>u.media?.url===url))URL.revokeObjectURL(url);
+ dialog.close();
+ render();
+ announce('Group update deleted for all recipients');
+}
+function confirmRemoveActivity(id){
+ const i=state.student;
+ if(!kidActivities(i).some(u=>String(u.id)===id))return;
+ const name=names[i];
+ dialog.innerHTML='<div class="between"><h2 id="dialog-title">Remove this update?</h2><button type="button" class="btn icon" data-go="close" aria-label="Close">×</button></div>'+
+ '<p class="small section">This removes it from '+name+'’s Kid Activity only. Other students’ histories keep their copy.</p>'+
+ '<div class="stack section"><button type="button" class="btn remove-confirm" data-confirm-remove="'+esc(id)+'" data-child="'+i+'">Remove from '+name+'’s history</button>'+button('Cancel','close','btn')+'</div>';
+ dialog.showModal();
+}
+function removeActivity(i,id){
+ if(!kidActivities(i).some(u=>String(u.id)===id))return;
+ state.removedActivities.add(activityKey(i,id));
+ dialog.close();
+ render();
+ announce('Removed from '+names[i]+'’s history');
+}
+function intakeButtons(i){
+ const entry=state.mealIntake[i];
+ return '<div class="meal-actions" aria-label="Lunch intake for '+names[i]+'">'+intakeOptions.map((text,j)=>'<button type="button" class="btn" data-intake="'+j+'" data-intake-student="'+i+'" aria-pressed="'+(entry?.status===text)+'">'+text+'</button>').join('')+'</div>';
+}
+function mealMenus(i,ago){
+ if(ago===0)return state.updates.filter(u=>u.kind==='meal'&&u.selected.includes(i));
+ const sample=i===0?sampleMenus[ago]:null;
+ return sample?[{caption:sample.caption,media:sample.photo?sampleMealPhoto():null}]:[];
+}
+function mealHistory(i){
+ return '<section class="meal-history"><h2>Last 7 days</h2><div class="card">'+Array.from({length:7},(_,ago)=>{
+ const status=ago===0?state.mealIntake[i]?.status:i===0?pastIntake[ago]:undefined;
+ const menus=mealMenus(i,ago);
+ const detail=menus.length?menus.map(menu=>'<article class="media-preview meal-menu-detail">'+
+ (menu.media?mediaPreview(menu.media):'')+(menu.caption?'<p>'+esc(menu.caption)+'</p>':'')+'</article>').join(''):
+ '<p class="small meal-day-empty">No menu shared for this day.</p>';
+ return '<details class="history-row" '+(ago===0&&menus.length?'open':'')+'><summary><span><strong>'+(ago===0?'Today':demoDate(ago))+'</strong>'+
+ (menus.length?'<small class="small">Menu available</small>':'')+'</span>'+pill(status)+'</summary><div class="meal-day-menus">'+detail+'</div></details>';
+ }).join('')+'</div></section>';
+}
+function mealStatus(){
+ const i=state.student,details=childDetails[i],entry=state.mealIntake[i];
+ return header('Meal status','student')+wrap(title(names[i],'Meal status · Today')+
+ (details?.allergy?'<aside class="profile-alert meal-allergy" aria-label="Food allergy"><p class="small">Allergies</p><strong>'+details.allergy+'</strong></aside>':'')+
+ '<section class="card intake-panel section"><div class="between"><h2>Lunch</h2>'+pill(entry?.status)+'</div>'+
+ '<p class="small">'+(entry?'Recorded by '+teacher+' · '+clockTime(entry.at):'Choose how much the child ate.')+'</p>'+
+ intakeButtons(i)+'</section>'+mealHistory(i));
+}
+function mealCaption(draft){
+ const menu=[...draft.foods].join(', ');
+ return [menu,draft.description.trim()].filter(Boolean).join(' · ');
+}
+function mealShare(){
+ const d=state.mealDraft,menu=state.mealTab==='menu',canSend=!!(d.media||mealCaption(d));
+ const tabs='<nav class="lunch-tabs" aria-label="Lunch tasks"><button type="button" class="btn" data-meal-tab="menu" aria-pressed="'+menu+'">Share menu</button><button type="button" class="btn" data-meal-tab="intake" aria-pressed="'+!menu+'">Record intake</button></nav>';
+ const picker='<div class="line lunch-photo-actions">'+button('Take photo','photo')+button('Choose photo','meal-file')+button('Use sample photo','meal-sample','btn quiet')+'</div>';
+ const menuBody=(d.media?'<div class="media-preview meal-share-photo">'+mediaPreview(d.media)+'</div><div class="section">'+picker+'</div>':
+ '<div class="capture"><div><h2>Add a meal photo</h2><div class="section">'+picker+'</div></div></div>')+
+ '<section class="card pad section"><h2>What’s on the menu?</h2><div class="meal-actions section" aria-label="Menu options">'+foodOptions.map(v=>'<button type="button" class="btn" data-food="'+v+'" aria-pressed="'+d.foods.has(v)+'">'+v+'</button>').join('')+'</div>'+
+ '<label class="label section" for="meal-description">Description <span class="small">optional</span></label><textarea id="meal-description" maxlength="240" placeholder="Add any other items or a short note.">'+esc(d.description)+'</textarea></section>';
+ const intakeBody='<section><div class="between"><h2>Lunch intake</h2><span class="small">'+Object.keys(state.mealIntake).length+' of '+names.length+' recorded</span></div>'+
+ '<div class="card section">'+names.map((name,i)=>'<article class="lunch-intake-row"><div class="between"><div class="line">'+avatar(i)+'<strong>'+name+'</strong></div>'+pill(state.mealIntake[i]?.status)+'</div>'+intakeButtons(i)+'</article>').join('')+'</div></section>';
+ return header('Meal status','classroom')+wrap(title('Today’s lunch',menu?'Share the menu with all Willow Room families.':'Record how much each child ate.')+tabs+(menu?menuBody:intakeBody))+
+ (menu?foot('<button type="button" class="btn primary wide" data-go="confirm-meal" '+(canSend?'':'disabled')+'>Review for all '+names.length+' families</button>'):'');
+}
+function confirmMeal(){
+ const d=state.mealDraft,caption=mealCaption(d);
+ if(!d.media&&!caption)return;
+ dialog.innerHTML='<div class="between"><h2 id="dialog-title">Share today’s lunch?</h2><button type="button" class="btn icon" data-go="close" aria-label="Close">×</button></div>'+
+ '<p class="small section">All '+names.length+' Willow Room families will receive this menu.</p>'+
+ (d.media?'<div class="media-preview meal-share-photo section">'+mediaPreview(d.media)+'</div>':'')+
+ (caption?'<p class="section">'+esc(caption)+'</p>':'')+
+ '<div class="section">'+button('Share with all '+names.length+' families','send-meal','btn primary wide')+'</div>';
+ dialog.showModal();
+}
+function sendMeal(){
+ const d=state.mealDraft,caption=mealCaption(d);
+ if(!d.media&&!caption)return;
+ const entry={id:++state.seq,kind:'meal',heading:'Today’s lunch',media:d.media,caption,selected:names.map((_,i)=>i),at:new Date().toISOString(),by:teacher};
+ state.updates.unshift(entry);
+ state.sent=entry;
+ state.mealDraft=emptyMeal();
+ dialog.close();
+ openView('sent');
+}
+function roster(){
+ return header('','classroom')+wrap(title('Nap rounds','Willow Room · 15-minute demo policy')+
+ '<div class="between nap-rollup"><h2>Student nap status</h2><time class="small" datetime="'+inputTime(state.now)+'">Current time · '+clockTime(state.now)+'</time></div>'+
+ '<section class="card">'+ordered().map(i=>{
+ const nap=activeNap(i),last=nap?.checks.at(-1);
+ return '<div class="row nap-row"><div class="line">'+avatar(i)+'<div><strong>'+names[i]+'</strong>'+
+ (nap?'<p class="small">'+(last?'Checked '+clockTime(last.at):'Asleep since '+clockTime(nap.start))+'</p>'+dueLabel(nap):'<p class="small">'+(state.sessions[i].length?'Awake':'No nap started')+'</p>')+'</div></div>'+
+ '<div class="stack">'+(nap?'<button type="button" class="btn nap-action" data-sleep-check="'+i+'">Log check</button><button type="button" class="btn quiet quiet-tight" data-nap-event="wake:'+i+'">Mark awake</button>':'<button type="button" class="btn" data-nap-event="start:'+i+'">Mark asleep</button>')+'</div></div>';
+ }).join('')+'</section>');
+}
+function optionGroup(name,label,options){
+ return '<fieldset class="nap-fields"><legend>'+label+'</legend><div class="nap-choices">'+options.map(v=>'<label class="nap-choice"><input type="radio" name="'+name+'" value="'+v+'" required><span>'+v+'</span></label>').join('')+'</div></fieldset>';
+}
+function checkTimeline(n){
+ const noon=720,one=780;
+ const offset=at=>(at-noon)/(one-noon)*100;
+ const start=Math.max(noon,n.start),end=Math.min(one,state.now);
+ const fill=end>start?'<span class="sleep-fill" style="left:'+offset(start)+'%;width:'+(offset(end)-offset(start))+'%"></span>':'';
+ const ticks=n.checks.filter(c=>c.at>=noon&&c.at<=one).map(c=>'<span class="sleep-tick" title="Check taken at '+clockTime(c.at)+'" style="left:'+offset(c.at)+'%">✓</span>').join('');
+ const times=n.checks.map(c=>clockTime(c.at));
+ return '<section class="sleep-history" aria-label="Nap timeline from noon to 1 PM">'+
+ '<div class="between"><h2>This nap</h2><p class="small">Fell asleep <strong>'+clockTime(n.start)+'</strong></p></div>'+
+ '<div class="sleep-rail" aria-hidden="true">'+fill+ticks+'</div>'+
+ '<div class="between sleep-rail-labels" aria-hidden="true"><span>12:00 PM</span><span>12:30 PM</span><span>1:00 PM</span></div>'+
+ '<p class="small sleep-check-times">'+(times.length?'Checks taken · '+times.join(', '):'No checks recorded yet')+'</p></section>';
+}
+let activeTimePicker;
+function observationTimePicker(label='Observed at',id='observed-at'){
+ return '<div class="observed-picker nap-time" data-label="'+label+'"><span class="label" id="'+id+'-label">'+label+'</span>'+
+ '<button type="button" class="btn observed-button" data-go="observed-wheel" aria-haspopup="dialog" aria-labelledby="'+id+'-label '+id+'-display"><span id="'+id+'-display" data-time-display>'+clockTime(state.now)+'</span><span class="observed-change" aria-hidden="true">Change</span></button>'+
+ '<input id="'+id+'" name="at" type="hidden" value="'+state.now+'"></div>';
+}
+function openMinuteWheel(button){
+ activeTimePicker=button.closest('.observed-picker');
+ const picked=Number(activeTimePicker.querySelector('[name=at]').value);
+ const start=Math.max(0,Math.min(720,state.now-15,picked));
+ const end=Math.min(1439,Math.max(780,state.now+15,picked));
+ timeDialog.innerHTML='<div class="between"><h2 id="minute-wheel-title">'+activeTimePicker.dataset.label+'</h2><button class="btn icon" type="button" data-go="close" aria-label="Close time picker">×</button></div>'+
+ '<p class="small">Scroll to adjust by one minute.</p><div class="minute-wheel-wrap"><div class="minute-wheel" id="minute-wheel" tabindex="0" aria-label="Observation time. Use up or down arrows to select a minute.">'+
+ Array.from({length:end-start+1},(_,i)=>{
+  const at=start+i;
+  return '<button class="minute-option" type="button" tabindex="-1" data-minute="'+at+'" aria-pressed="false">'+clockTime(at)+(at===state.now?'<small>Current time</small>':'')+'</button>';
+ }).join('')+'</div></div><button class="btn primary wide" type="button" data-go="observed-use">Use time</button>';
+ timeDialog.showModal();
+ const wheel=timeDialog.querySelector('#minute-wheel');
+ const options=[...wheel.querySelectorAll('[data-minute]')];
+ const rowHeight=options[0].offsetHeight;
+ let index=-1;
+ function sync(){
+  const next=Math.min(options.length-1,Math.max(0,Math.round(wheel.scrollTop/rowHeight)));
+  if(next===index)return;
+  options[index]?.setAttribute('aria-pressed','false');
+  options[next].setAttribute('aria-pressed','true');
+  index=next;
+ }
+ function select(next){
+  wheel.scrollTop=Math.min(options.length-1,Math.max(0,next))*rowHeight;
+  sync();
+ }
+ wheel.addEventListener('scroll',sync,{passive:true});
+ wheel.addEventListener('click',event=>{
+  const option=event.target.closest('[data-minute]');
+  if(option)select(Number(option.dataset.minute)-start);
+ });
+ wheel.addEventListener('keydown',event=>{
+  if(event.key!=='ArrowUp'&&event.key!=='ArrowDown')return;
+  event.preventDefault();
+  select(index+(event.key==='ArrowUp'?-1:1));
+ });
+ select(picked-start);
+ wheel.focus({preventScroll:true});
+}
+function applyObservedTime(){
+ const option=timeDialog.querySelector('[data-minute][aria-pressed=true]');
+ if(!option||!activeTimePicker)return;
+ const at=Number(option.dataset.minute);
+ activeTimePicker.querySelector('[name=at]').value=at;
+ activeTimePicker.querySelector('[data-time-display]').textContent=clockTime(at);
+ timeDialog.close();
+}
+function sleepCheck(){
+ const {i,source}=state.sleepChecking,n=activeNap(i);
+ if(!n)return roster();
+ return header('Sleep check',source)+wrap('<div class="card sleep-context"><div class="between"><div class="line">'+avatar(i)+'<div><h1>'+names[i]+'</h1><p class="small">Recorded by '+teacher+'</p></div></div>'+dueLabel(n)+'</div>'+checkTimeline(n)+'</div>'+
+  '<form id="sleep-form" class="card pad stack section">'+observationTimePicker()+
+ optionGroup('position','Sleep position',['Back','Side','Stomach'])+optionGroup('breathing','Breathing',['No labored breathing','Labored breathing'])+optionGroup('condition','Signs of distress',['None observed','Concern observed'])+
+ '<p id="concern" class="error" hidden>Follow your center’s response procedure.</p><label class="label" for="check-note">Notes <span class="small">optional</span></label><textarea name="note" id="check-note" maxlength="200" rows="2"></textarea>'+
+ '<p class="error" id="sleep-error" role="alert" hidden></p></form>')+
+ foot('<button type="submit" class="btn primary wide" form="sleep-form">Save sleep check</button>');
+}
+function media(){
+ const m=state.draft.media;
+ const single=state.draft.student;
+ return header(single==null?'Group update':'Student update',single==null?'classroom':'familyActivity')+wrap(title(single==null?'Share a group activity':'Update for '+names[single],single==null?'Add one photo or video, then choose the families.':'Share a photo or video with this student’s family.')+
+ (m?'<div class="media-preview">'+mediaPreview(m)+'</div>':
+ '<div class="capture"><div><h2>Add a photo or video</h2><div class="line section">'+button('Take photo','photo','btn')+button('Record video','video','btn')+'</div></div></div>')+
+ '<div class="line section">'+button(m?'Replace media':'Choose file','media-file','btn quiet')+button('Use sample photo','sample','btn quiet')+'</div>'+
+ '<label class="label section" for="caption">Caption <span class="small">optional</span></label><textarea id="caption" maxlength="240" placeholder="What did the children do?">'+esc(state.draft.caption)+'</textarea>'+(single==null?groupLog():''))+
+ foot('<button type="button" class="btn primary wide" data-go="'+(single==null?'recipients':'confirm-send')+'" '+(m?'':'disabled')+'>'+(single==null?'Choose students':'Review update')+'</button>');
+}
+function recipients(){
+ const d=state.draft,n=d.selected.size;
+ return header('Choose students','media')+wrap(title('Who joined in?','Select the students whose families should see this.')+
+ '<div class="media-preview">'+mediaPreview(d.media)+(d.caption?'<p>'+esc(d.caption)+'</p>':'')+'</div><div class="spacer"></div>'+tiles(true))+
+ foot('<div class="review-strip"><strong>'+n+(n===1?' family selected':' families selected')+'</strong>'+(n?'<p>'+[...d.selected].sort((a,b)=>a-b).map(i=>names[i]).join(', ')+'</p>':'')+'</div><button type="button" class="btn primary wide" data-go="confirm-send" '+(n?'':'disabled')+'>Send to '+n+(n===1?' family':' families')+'</button>');
+}
+function sent(){
+ const u=state.sent,n=u.selected.length;
+ return header(u.kind==='meal'?'Meal status':'Group update','classroom')+wrap(title('Shared with '+n+(n===1?' family':' families'),'Demo activity record')+
+ '<div class="media-preview">'+mediaPreview(u.media)+(u.caption?'<p>'+esc(u.caption)+'</p>':'')+'</div><section class="section card">'+u.selected.map(i=>'<button type="button" class="row btn wide" data-sent-student="'+i+'"><span class="line">'+avatar(i)+'<span>'+names[i]+'</span></span><span aria-hidden="true">›</span></button>').join('')+'</section>')+
+ foot((u.kind==='meal'?button('Record intake','meal-intake','btn primary wide'):'')+button('Back to classroom','classroom',u.kind==='meal'?'btn quiet wide':'btn primary wide'));
+}
+function render(){app.classList.toggle('classroom',state.view==='classroom');app.innerHTML=({login,classroom,student,studentDetail,familyActivity,mealStatus,mealShare,rounds:roster,sleepCheck,media,recipients,sent}[state.view])()}
+function chooseSleepCheck(i,source=state.view){
+ state.sleepChecking={i,source};openView('sleepCheck');
+}
+function napEvent(kind,i){
+ const n=activeNap(i);
+ if((kind==='wake')!==!!n)return;
+ const last=state.sessions[i].at(-1);
+ const min=kind==='wake'?lastObservation(n):last?.end??0;
+ dialog.innerHTML='<div class="between"><h2 id="dialog-title">'+(kind==='wake'?'Mark awake':'Mark asleep')+' · '+names[i]+'</h2><button type="button" class="btn icon" data-go="close" aria-label="Close">×</button></div>'+
+ '<form class="stack section" id="nap-event-form" data-event="'+kind+'" data-i="'+i+'" data-min="'+min+'">'+
+ observationTimePicker(kind==='wake'?'Woke at':'Fell asleep at','nap-event-at')+
+ '<p id="nap-event-error" class="error" role="alert" hidden></p><button class="btn primary wide">Save '+(kind==='wake'?'wake time':'sleep start')+'</button></form>';
+
+ dialog.showModal();
+}
+function saveSleepCheck(form){
+ const {i,source}=state.sleepChecking,n=activeNap(i),data=new FormData(form);
+ const at=Number(data.get('at'));
+ const error=document.querySelector('#sleep-error');
+ const earliest=n?.checks.length?lastObservation(n)+1:n?.start;
+ if(!n||!Number.isFinite(at)||at<earliest||at>=1440){
+  error.textContent='Use an observation time during this nap and after any prior check.';error.hidden=false;return;
+ }
+ const due=nextDue(n);
+ state.now=Math.max(state.now,at);
+ n.checks.push({at,due,position:data.get('position'),condition:data.get('condition'),breathing:data.get('breathing'),note:data.get('note').trim(),by:teacher,logged:state.now});
+ openView(source);announce('Check saved · Next due '+clockTime(nextDue(n)));
+}
+function setMedia(m){
+ const draft=state.view==='mealShare'?state.mealDraft:state.draft;
+ const old=draft.media;
+ if(old?.url.startsWith('blob:')&&!state.updates.some(u=>u.media?.url===old.url))URL.revokeObjectURL(old.url);
+ draft.media=m;render();
+}
+function confirmSend(){
+ const n=state.draft.selected.size;
+ if(!n||!state.draft.media)return;
+ dialog.innerHTML='<div class="between"><h2 id="dialog-title">Share this activity?</h2><button type="button" class="btn icon" data-go="close" aria-label="Close">×</button></div>'+
+ '<p class="small section">Only the following families are included.</p><p class="section">'+[...state.draft.selected].sort((a,b)=>a-b).map(i=>names[i]).join(', ')+'</p><div class="stack section">'+
+ button('Send to '+n+(n===1?' family':' families'),'send','btn primary wide')+button('Keep editing','close','btn wide')+'</div>';
+ dialog.showModal();
+}
+function send(){
+ const d=state.draft;
+ if(!d.media||!d.selected.size)return;
+ const entry={id:++state.seq,kind:d.student==null?'group':'individual',media:d.media,caption:d.caption.trim(),selected:[...d.selected].sort((a,b)=>a-b),at:new Date().toISOString(),by:teacher};
+ state.updates.unshift(entry);state.sent=entry;state.draft={media:null,caption:'',selected:new Set(),student:null};dialog.close();openView('sent');
+}
+document.addEventListener('submit',e=>{
+ if(e.target.id==='sleep-form'){e.preventDefault();return saveSleepCheck(e.target)}
+ if(e.target.id==='nap-event-form'){
+  e.preventDefault();
+  const {event,i}=e.target.dataset;
+  const at=Number(new FormData(e.target).get('at')),n=activeNap(+i);
+  if(!Number.isInteger(at)||at<Number(e.target.dataset.min)||at>=1440){
+   const error=document.querySelector('#nap-event-error');
+   error.textContent=event==='wake'?'Choose a time at or after the last observation.':'Choose a time at or after the previous nap ended.';
+   error.hidden=false;
+   return;
+  }
+  state.now=Math.max(state.now,at);
+  if(event==='wake'&&n)n.end=at;
+  if(event==='start'&&!n)state.sessions[i].push({start:at,checks:[]});
+  dialog.close();render();announce(event==='wake'?'Wake time saved':'Sleep start saved');return;
+ }
+ if(e.target.id!=='login-form')return;
+ e.preventDefault();
+ const data=new FormData(e.target);
+ if(data.get('email').trim().toLowerCase()===email&&data.get('password')===password){state.profileScroll=0;openView('classroom')}
+ else document.querySelector('#login-error').hidden=false;
+});
+document.addEventListener('change',e=>{
+ if(e.target.form?.id==='sleep-form'&&['condition','breathing'].includes(e.target.name)){const data=new FormData(e.target.form);document.querySelector('#concern').hidden=data.get('condition')!=='Concern observed'&&data.get('breathing')!=='Labored breathing';}
+});
+document.addEventListener('input',e=>{
+ if(e.target.id==='caption')state.draft.caption=e.target.value;
+ if(e.target.id==='meal-description'){
+  state.mealDraft.description=e.target.value;
+  document.querySelector('[data-go=confirm-meal]').disabled=!(state.mealDraft.media||mealCaption(state.mealDraft));
+ }
+});
+for(const id of ['photo','video','media-file','meal-file']){
+ const input=document.querySelector('#'+id);
+ input.addEventListener('change',()=>{
+  const file=input.files[0];if(!file)return;
+  const kind=file.type.startsWith('video/')?'video':file.type.startsWith('image/')?'image':null;
+  if(!kind||(state.view==='mealShare'&&kind!=='image')){announce(state.view==='mealShare'?'Choose a meal photo.':'Choose a photo or video file.');input.value='';return}
+  setMedia({kind,url:URL.createObjectURL(file),name:file.name});input.value='';
+ });
+}
+document.addEventListener('click',event=>{
+ const el=event.target.closest('button');if(!el||el.disabled)return;
+ const d=el.dataset;
+ if(d.deleteGroup!=null)return confirmDeleteGroupPost(Number(d.deleteGroup));
+ if(d.confirmDeleteGroup!=null)return deleteGroupPost(Number(d.confirmDeleteGroup));
+ if(d.removeActivity!=null)return confirmRemoveActivity(d.removeActivity);
+ if(d.confirmRemove!=null)return removeActivity(Number(d.child),d.confirmRemove);
+ if(d.sleepCheck!=null)return chooseSleepCheck(+d.sleepCheck)
+ if(d.napEvent){const [kind,i]=d.napEvent.split(':');return napEvent(kind,+i)}
+ if(d.student!=null||d.sentStudent!=null){
+  state.student=+(d.student??d.sentStudent);
+  openView(d.sentStudent!=null?(state.sent?.kind==='meal'?'mealStatus':'familyActivity'):'student');
+  return;
+ }
+ if(d.food!=null){
+  const foods=state.mealDraft.foods;
+  if(foods.has(d.food))foods.delete(d.food);else foods.add(d.food);
+  el.setAttribute('aria-pressed',String(foods.has(d.food)));
+  document.querySelector('[data-go=confirm-meal]').disabled=!(state.mealDraft.media||mealCaption(state.mealDraft));
+  return;
+ }
+ if(d.mealTab!=null){state.mealTab=d.mealTab;return openView('mealShare')}
+ if(d.intake!=null){
+  const i=Number(d.intakeStudent),y=window.scrollY;
+  state.mealIntake[i]={status:intakeOptions[+d.intake],at:state.now};
+  render();
+  window.scrollTo(0,y);
+  document.querySelector('[data-intake="'+d.intake+'"][data-intake-student="'+i+'"]').focus({preventScroll:true});
+  announce('Lunch intake saved for '+names[i]);
+  return;
+ }
+ if(d.pick!=null){
+  const i=+d.pick,selected=state.draft.selected;
+  if(selected.has(i))selected.delete(i);else selected.add(i);
+  render();document.querySelector('[data-pick="'+i+'"]').focus({preventScroll:true});return;
+ }
+ switch(d.go){
+  case 'close':return el.closest('dialog')?.close();
+  case 'observed-wheel':return openMinuteWheel(el);
+  case 'observed-use':return applyObservedTime();
+  case 'photo':
+  case 'video':
+  case 'media-file':case 'meal-file':return document.getElementById(d.go).click();
+  case 'sample':return setMedia(samplePhoto());
+  case 'confirm-send':return confirmSend();
+  case 'send':return send();
+  case 'toggle-password':{const p=document.querySelector('[name=password]');p.type=p.type==='password'?'text':'password';el.textContent=p.type==='password'?'Show password':'Hide password';return}
+  case 'account':
+   dialog.innerHTML='<div class="between"><h2 id="dialog-title">'+teacher+'</h2><button type="button" class="btn icon" data-go="close" aria-label="Close">×</button></div><p class="small">Willow Room</p><div class="section">'+button('Sign out','signout','btn wide')+'</div>';
+   return dialog.showModal();
+  case 'signout':if(dialog.open)dialog.close();state.profileScroll=0;return openView('login');
+  case 'open-group':
+   if(state.draft.student!=null)state.draft={media:null,caption:'',selected:new Set(),student:null};
+   return openView('media');
+  case 'open-individual':
+   if(state.draft.student!==state.student)state.draft={media:null,caption:'',selected:new Set([state.student]),student:state.student};
+   return openView('media');
+  case 'student-nap':return openView('studentDetail');
+  case 'student-activity':return openView('familyActivity');
+  case 'student-meals':return openView('mealStatus');
+  case 'attendance-soon':
+  case 'fees-soon':{
+   const attendance=d.go==='attendance-soon';
+   dialog.innerHTML='<div class="between"><h2 id="dialog-title">'+(attendance?'Attendance':'Fee structure')+' · Coming soon</h2><button type="button" class="btn icon" data-go="close" aria-label="Close">×</button></div>'+
+   '<p class="small section">'+(attendance?'We’re saving this feature a seat.':'The numbers are still lining up.')+'</p><div class="section">'+button('Got it','close','btn primary wide')+'</div>';
+   return dialog.showModal();
+  }
+  case 'meal-share':state.mealTab='menu';return openView('mealShare');
+  case 'meal-intake':state.mealTab='intake';return openView('mealShare');
+  case 'meal-sample':return setMedia(sampleMealPhoto());
+  case 'confirm-meal':return confirmMeal();
+  case 'send-meal':return sendMeal();
+  case 'classroom':case 'student':case 'studentDetail':case 'familyActivity':case 'rounds':case 'media':case 'recipients':case 'sent':return openView(d.go);
+ }
+});
+render();
+</script>
+</body>
+</html>
