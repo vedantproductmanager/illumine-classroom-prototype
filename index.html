@@ -236,10 +236,114 @@ body{background:#eeeaf4}
 .feed-recipients summary{font-weight:720;color:var(--ink);cursor:pointer;min-height:32px;padding:5px 0}
 .feed-recipients ul{margin:5px 0 2px;padding-left:15px}
 .feed-recipients li+li{margin-top:3px}
+
+/* Stakeholder presentation surrounds, but does not change, the teacher prototype. */
+body{background:#f6f4fa;color:var(--ink)}
+.demo-shell{min-height:100dvh;max-width:1480px;margin:0 auto;padding:0 clamp(22px,5.3vw,78px)}
+.demo-top{height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8e3ee}
+.demo-top img{display:block;width:112px;height:auto}
+.demo-badge{padding:6px 10px;border:1px solid #e5dfef;border-radius:999px;background:#fff;color:#625973;font-size:.73rem;font-weight:650}
+.demo-layout{min-height:calc(100dvh - 73px);display:grid;grid-template-columns:minmax(205px,.75fr) minmax(380px,480px) minmax(225px,.78fr);align-items:center;justify-content:center;gap:clamp(28px,4.3vw,64px);padding:25px 0 32px}
+.demo-intro{align-self:center;max-width:290px}
+.demo-eyebrow{margin:0 0 12px;color:#7354b6;font-size:.67rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.demo-intro h1{font-size:clamp(1.9rem,3vw,2.7rem);line-height:1.06;letter-spacing:-.06em;font-weight:760}
+.demo-lede{margin-top:11px;max-width:29ch;color:#686174;font-size:.91rem;line-height:1.48}
+.demo-steps{display:grid;gap:7px;margin-top:23px}
+.demo-step{display:flex;align-items:center;gap:9px;color:#655e70;font-size:.82rem}
+.demo-step b{display:grid;place-items:center;width:23px;height:23px;border-radius:50%;background:#ece7f4;color:#6f56a1;font-size:.68rem}
+.demo-step:first-child{color:#352d43;font-weight:700}
+.demo-step:first-child b{background:#e5daf8;color:#5437a0}
+.demo-stage{display:flex;justify-content:center;align-items:center;min-width:0}
+.demo-preview{display:flex;flex-direction:column;width:min(100%,480px);height:min(880px,calc(100dvh - 96px));min-height:590px;overflow:hidden;border:1px solid #e2dce9;border-radius:21px;background:#fff;box-shadow:0 18px 55px #392a5a16,0 2px 7px #392a5a0b}
+.demo-preview-head{display:flex;align-items:center;gap:8px;flex:none;height:43px;padding:0 14px;border-bottom:1px solid #ede9f0;color:#5f586b;font-size:.72rem}
+.demo-live-dot{width:8px;height:8px;border-radius:50%;background:#5733aa;box-shadow:0 0 0 3px #efe9fb}
+.demo-preview-head strong{font-size:.73rem;color:#3b3349}
+.demo-screen-name{margin-left:auto;color:#797285}
+.demo-preview #app{width:100%;height:100%;min-height:0;max-width:none;margin:0;border-radius:0;overflow:hidden;box-shadow:none}
+.demo-preview #app.classroom{height:100%;min-height:0}
+.demo-preview #app>.main{overflow-y:auto;overscroll-behavior:contain}
+.demo-notes{align-self:center;max-width:285px;color:#302b3a}
+.demo-notes h2{font-size:1.04rem;letter-spacing:-.025em}
+.demo-notes .demo-eyebrow{margin-bottom:7px}
+.demo-journey{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:0}
+.demo-journey li{display:grid;grid-template-columns:21px 1fr;gap:8px;padding:9px 0;border-top:1px solid #e4dfeb;color:#655e70;font-size:.76rem;line-height:1.36}
+.demo-journey li b{color:#7354b6;font-variant-numeric:tabular-nums;font-size:.68rem;padding-top:2px}
+.demo-journey strong{display:block;color:#342e40;font-size:.81rem;margin-bottom:1px}
+.demo-callout{margin-top:16px;padding:11px 12px;border:1px solid #e7e1ef;border-radius:12px;background:#fbfaff}
+.demo-callout strong{display:block;font-size:.8rem;margin-bottom:3px}
+.demo-callout p,.demo-footnote{margin:0;color:#6c6578;font-size:.72rem;line-height:1.4}
+.demo-footnote{margin-top:9px;padding-left:1px}
+@media(max-width:1080px) and (min-width:721px){
+ .demo-shell{padding-inline:28px}.demo-layout{grid-template-columns:minmax(185px,.72fr) minmax(360px,480px);gap:24px 32px;grid-template-areas:"intro stage" "notes stage";align-content:center}
+ .demo-intro{grid-area:intro}.demo-stage{grid-area:stage;grid-row:1 / span 2}.demo-notes{grid-area:notes}.demo-preview{height:min(880px,calc(100dvh - 96px));min-height:560px}
+}
+@media(max-width:720px){
+ body{background:#f6f4fa}.demo-shell{min-height:100dvh;padding:0 15px 20px}.demo-top{height:57px}.demo-top img{width:98px}.demo-badge{padding:5px 8px;font-size:.67rem}.demo-badge span{display:none}
+ .demo-layout{display:flex;min-height:0;flex-direction:column;align-items:stretch;gap:12px;padding:17px 0 0}.demo-intro{display:block;max-width:none}.demo-eyebrow{margin-bottom:6px;font-size:.61rem}.demo-intro h1{max-width:22ch;font-size:1.45rem;line-height:1.12;letter-spacing:-.04em}.demo-lede{margin-top:4px;font-size:.77rem;line-height:1.4}.demo-steps{display:none}
+ .demo-stage{display:block}.demo-preview{width:100%;height:auto;min-height:calc(100svh - 154px);border-radius:16px;box-shadow:0 5px 20px #392a5a0d}.demo-preview-head{height:38px;padding-inline:11px}.demo-preview #app,.demo-preview #app.classroom{width:100%;height:100dvh;min-height:100dvh;border-radius:0}.demo-preview #app:not(.classroom){min-height:100dvh}
+ .demo-notes{display:grid;grid-template-columns:1fr;align-self:stretch;max-width:none;padding:3px 1px}.demo-notes>.demo-eyebrow,.demo-notes>h2{display:none}.demo-journey{display:flex;gap:6px;margin:0;overflow:auto}.demo-journey li{display:block;flex:1;min-width:0;padding:7px 8px;border:1px solid #e5dfef;border-radius:10px;background:#fff;font-size:.65rem;line-height:1.25}.demo-journey li b{display:block;margin-bottom:3px}.demo-journey strong{font-size:.7rem}.demo-callout,.demo-footnote{display:none}
+}
+
+/* Overlay coordinates follow the visible demo screen, including browser zoom. */
+.demo-preview #app{flex:1;min-height:0!important;height:auto!important}
+.demo-preview #app>.bar,.demo-preview #app>.footer,.classroom-header{flex-shrink:0}
+.demo-preview #app>.main{min-height:0}
+dialog{inset:auto auto var(--overlay-bottom,12px) var(--overlay-left,12px);margin:0;width:var(--overlay-width,calc(100vw - 24px));max-width:calc(100vw - 24px);max-height:var(--overlay-height,80dvh);overflow:auto;overscroll-behavior:contain;border-radius:18px;box-shadow:0 18px 60px #24193630}
+.toast{left:var(--overlay-center,50%);bottom:calc(var(--overlay-bottom,12px) + 12px);max-width:var(--overlay-width,calc(100vw - 24px));white-space:normal;overflow-wrap:anywhere}
+@media(max-width:720px){.demo-preview{height: min(880px,calc(100dvh - 80px));min-height:560px;max-width:480px;margin-inline:auto}.demo-intro{align-self:stretch}.demo-badge span{display:inline}.demo-notes{max-width:480px;width:100%;margin-inline:auto}}
+
+/* Keep the presentation stationary; scrolling belongs to the demo screen. */
+.demo-shell{height:100dvh;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+.demo-top{flex:none}
+.demo-layout{flex:1;min-height:0;padding:20px 0 28px;overflow:hidden}
+.demo-stage{height:100%;min-height:0}
+.demo-preview{height:100%;min-height:0;max-height:880px}
+.demo-preview #app.classroom{overflow-y:auto;overscroll-behavior:contain;display:block}
+.demo-preview #app.classroom>.main{display:block;overflow:visible;padding-bottom:16px}
+.classroom .profile-pane{margin-top:14px}
+.classroom .profile-scroll{overflow:visible}
+@media(max-width:1080px) and (min-width:721px){.demo-layout{grid-template-rows:1fr 1fr}.demo-preview{height:100%;min-height:0}}
+@media(max-width:720px){
+ .demo-shell{padding-bottom:0}.demo-layout{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);gap:12px;padding:12px 0 22px}
+ .demo-stage{min-height:0;height:100%;display:flex}.demo-preview{height:100%;min-height:0;max-height:880px}
+ .demo-notes{display:none}.demo-intro{align-self:start}.demo-intro h1{max-width:none}
+}
+
+/* Reserve selection-summary space so choosing families cannot resize the list. */
+.footer:has([data-go="confirm-send"]) .review-strip{height:66px;overflow:auto}
+
+/* Keep the meal description label clear of its keyboard-focus indicator. */
+#meal-description{margin-top:10px}
+#meal-description:focus-visible{outline:2px solid #8861df;outline-offset:2px}
 </style>
 </head>
 <body>
-<main id="app" class="app"></main>
+<div class="demo-shell">
+  <header class="demo-top">
+    <img src="illumine-wordmark.svg" alt="Illumine">
+    <div class="demo-badge">Teacher prototype <span>·</span> Willow Room</div>
+  </header>
+  <main class="demo-layout">
+    <section class="demo-intro" aria-labelledby="demo-title">
+      <p class="demo-eyebrow">ILLUMINE · CLASSROOM</p>
+      <h1 id="demo-title">A calmer day, in every classroom.</h1>
+      <p class="demo-lede">Nap checks, family updates, and meals in one place.</p>
+    </section>
+    <section class="demo-stage" aria-label="Interactive Illumine classroom prototype">
+      <div class="demo-preview"><div class="demo-preview-head"><span class="demo-live-dot"></span><strong>Interactive demo</strong><span class="demo-screen-name">Teacher view</span></div><main id="app" class="app"></main></div>
+    </section>
+    <aside class="demo-notes" aria-label="Walkthrough guide">
+      <p class="demo-eyebrow">START HERE</p>
+      <h2>Explore the demo</h2>
+      <ol class="demo-journey">
+        <li><b>01</b><span><strong>Sign in</strong>Credentials prefilled</span></li>
+        <li><b>02</b><span><strong>Open Chandler</strong>View care and meal history</span></li>
+        <li><b>03</b><span><strong>Try an action</strong>Nap · Activity · Meal</span></li>
+      </ol>
+      <div class="demo-callout"><strong>Sample data</strong><p>Family sharing is simulated.</p></div>
+    </aside>
+  </main>
+</div>
 <dialog id="dialog" aria-labelledby="dialog-title"></dialog>
 <dialog id="time-dialog" aria-labelledby="minute-wheel-title"></dialog>
 <div id="toast" class="toast" role="status"></div>
@@ -308,9 +412,9 @@ const groupPosts=()=>state.updates.filter(u=>u.kind==='group');
 const wrap=html=>'<div class="main">'+html+'</div>';
 function announce(text){toast.textContent=text;clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.textContent='',2600)}
 function openView(view){
- if(state.view==='classroom')state.profileScroll=document.querySelector('.profile-scroll')?.scrollTop??0;
- state.view=view;render();window.scrollTo(0,0);
- if(view==='classroom')document.querySelector('.profile-scroll').scrollTop=state.profileScroll;
+ if(state.view==='classroom')state.profileScroll=app.scrollTop;
+ state.view=view;render();app.scrollTop=0;
+ if(view==='classroom')app.scrollTop=state.profileScroll;
 }
 function samplePhoto(){
  const c=document.createElement('canvas');c.width=760;c.height=450;
@@ -784,10 +888,14 @@ document.addEventListener('click',event=>{
  }
  if(d.mealTab!=null){state.mealTab=d.mealTab;return openView('mealShare')}
  if(d.intake!=null){
-  const i=Number(d.intakeStudent),y=window.scrollY;
+  const i=Number(d.intakeStudent);
+  const mainScroll=app.querySelector('.main')?.scrollTop??0,appScroll=app.scrollTop;
   state.mealIntake[i]={status:intakeOptions[+d.intake],at:state.now};
   render();
-  window.scrollTo(0,y);
+  // The demo scrolls inside its screen, not in the browser window.
+  app.scrollTop=appScroll;
+  const main=app.querySelector('.main');
+  if(main)main.scrollTop=mainScroll;
   document.querySelector('[data-intake="'+d.intake+'"][data-intake-student="'+i+'"]').focus({preventScroll:true});
   announce('Lunch intake saved for '+names[i]);
   return;
@@ -795,7 +903,15 @@ document.addEventListener('click',event=>{
  if(d.pick!=null){
   const i=+d.pick,selected=state.draft.selected;
   if(selected.has(i))selected.delete(i);else selected.add(i);
-  render();document.querySelector('[data-pick="'+i+'"]').focus({preventScroll:true});return;
+  // Update selection in place so the media and scrolling list stay mounted.
+  el.setAttribute('aria-pressed',String(selected.has(i)));
+  el.querySelector('.select-mark').textContent=selected.has(i)?'✓':'';
+  const n=selected.size,footer=app.querySelector('.footer');
+  footer.querySelector('.review-strip').innerHTML='<strong>'+n+(n===1?' family selected':' families selected')+'</strong>'+(n?'<p>'+[...selected].sort((a,b)=>a-b).map(j=>names[j]).join(', ')+'</p>':'');
+  const sendButton=footer.querySelector('[data-go="confirm-send"]');
+  sendButton.disabled=!n;
+  sendButton.textContent='Send to '+n+(n===1?' family':' families');
+  return;
  }
  switch(d.go){
   case 'close':return el.closest('dialog')?.close();
@@ -837,6 +953,36 @@ document.addEventListener('click',event=>{
  }
 });
 render();
+
+// Presentation-only overlay placement; the existing forms and actions stay intact.
+function positionDemoOverlays(){
+ const r=app.getBoundingClientRect(),v=window.visualViewport;
+ const x=v?v.offsetLeft:0,y=v?v.offsetTop:0,w=v?v.width:innerWidth,h=v?v.height:innerHeight;
+ const width=Math.max(0,Math.min(480,r.width-16,w-24));
+ const left=Math.max(x+12,Math.min(r.left+(r.width-width)/2,x+w-width-12));
+ const bottomEdge=Math.max(y+100,Math.min(r.bottom-8,y+h-12));
+ const root=document.documentElement.style;
+ root.setProperty('--overlay-left',left+'px');root.setProperty('--overlay-width',width+'px');
+ root.setProperty('--overlay-center',(left+width/2)+'px');
+ root.setProperty('--overlay-bottom',Math.max(12,innerHeight-bottomEdge)+'px');
+ root.setProperty('--overlay-height',Math.max(80,bottomEdge-Math.max(y+12,r.top+8))+'px');
+}
+new ResizeObserver(positionDemoOverlays).observe(app);
+window.addEventListener('resize',positionDemoOverlays);
+window.addEventListener('scroll',positionDemoOverlays,true);
+window.visualViewport?.addEventListener('resize',positionDemoOverlays);
+window.visualViewport?.addEventListener('scroll',positionDemoOverlays);
+positionDemoOverlays();
+
+// Keep the template's text and two-column cards readable at their native size.
+const demoStage=document.querySelector('.demo-stage');
+const demoPreview=document.querySelector('.demo-preview');
+function fitPhonePreview(){
+ demoPreview.style.width=Math.min(414,demoStage.clientWidth)+'px';
+ demoPreview.style.height=Math.min(800,demoStage.clientHeight)+'px';
+}
+new ResizeObserver(fitPhonePreview).observe(demoStage);
+fitPhonePreview();
 </script>
 </body>
 </html>
