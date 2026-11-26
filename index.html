@@ -316,13 +316,28 @@ dialog{inset:auto auto var(--overlay-bottom,12px) var(--overlay-left,12px);margi
 #meal-description{margin-top:10px}
 #meal-description:focus-visible{outline:2px solid #8861df;outline-offset:2px}
 
-.round-child{border-bottom:1px solid var(--stroke);padding-bottom:8px}
+.round-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:4px 0 10px}
+.round-heading h1{font-size:1.4rem;line-height:1.2;letter-spacing:-.035em}
+.round-heading .small{margin-top:3px}
+.round-heading time{font-size:.86rem;font-weight:700;white-space:nowrap}
+.round-overview{font-size:.8rem;color:var(--muted);margin-bottom:10px}
+.round-overview strong{color:var(--ink)}
+.round-child{border-bottom:1px solid var(--stroke);padding:12px}
 .round-child:last-child{border-bottom:0}
-.round-child>.nap-row{border-bottom:0}
-.round-nap-summary{display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;margin:0 10px;padding:8px 10px;background:var(--subtle);border-radius:10px;font-size:.76rem;color:var(--muted)}
-.round-nap-summary strong{color:var(--ink)}
-.round-history{margin:6px 10px 0;padding-top:0}
-.round-history summary{font-size:.78rem}
+.round-top{display:grid;grid-template-columns:36px minmax(0,1fr) auto;align-items:center;gap:8px}
+.round-top .avatar{width:36px;height:36px;border-radius:11px;font-size:.76rem}
+.round-name{font-size:.88rem;line-height:1.3;overflow-wrap:anywhere}
+.round-status{font-size:.75rem;color:var(--muted);margin-top:3px;line-height:1.4}
+.round-due{font-size:.72rem;color:var(--purple);font-weight:650;margin-top:4px}
+.round-due.nap-soon,.round-due.nap-overdue{display:inline-block;padding:2px 5px;border-radius:5px}
+.round-top>.btn{font-size:.78rem;min-height:44px;padding:8px}
+.round-secondary{position:relative;margin-top:4px;min-height:44px}
+.round-secondary>.btn{position:absolute;top:0;right:0;min-height:44px;font-size:.77rem;padding:8px}
+.round-history{margin:0;border:0;padding:0}
+.round-history summary{font-size:.73rem;color:var(--muted);font-weight:500;min-height:44px;padding:12px 0;cursor:pointer;line-height:1.5;overflow-wrap:anywhere}
+.round-secondary.has-wake .round-history summary{padding-right:105px}
+.round-history[open] summary{color:var(--purple)}
+.round-history .nap-log{margin:4px 0 0}
 
 .meal-recipient{text-align:left;min-height:52px;padding:10px;line-height:1.35}
 .meal-recipient small{display:block;font-size:.7rem;color:var(--muted);margin-top:4px}
@@ -711,16 +726,22 @@ function sendMeal(){
  openView('sent');
 }
 function roster(){
- return header('','classroom')+wrap(title('Nap rounds','Willow Room · 15-minute demo policy')+
- '<div class="between nap-rollup"><h2>Student nap status</h2><time class="small" datetime="'+inputTime(state.now)+'">Current time · '+clockTime(state.now)+'</time></div>'+
- '<section class="card">'+ordered().map(i=>{
+ const sleeping=names.filter((_,i)=>activeNap(i)).length;
+ const due=names.filter((_,i)=>activeNap(i)&&nextDue(activeNap(i))<=state.now).length;
+ return header('','classroom')+wrap('<div class="round-heading"><div><h1>Nap rounds</h1><p class="small">Willow Room · 15-minute demo policy</p></div><time datetime="'+inputTime(state.now)+'">'+clockTime(state.now)+'</time></div>'+
+ '<p class="round-overview"><strong>'+(due?due+(due===1?' check due':' checks due'):'No checks due')+'</strong> · '+sleeping+' asleep</p>'+
+ '<section class="card" aria-label="Children’s nap status">'+ordered().map(i=>{
  const naps=state.sessions[i],nap=activeNap(i),last=nap?.checks.at(-1);
- const completed=naps.filter(n=>n.end!=null),latest=completed.at(-1);
- const summary=nap?(last?'Checked '+clockTime(last.at):'Asleep since '+clockTime(nap.start)):(latest?'Awake · Woke at '+clockTime(latest.end):'No nap started');
- return '<article class="round-child"><div class="row nap-row"><div class="line">'+avatar(i)+'<div><strong>'+names[i]+'</strong><p class="small">'+summary+'</p>'+(nap?dueLabel(nap):'')+'</div></div>'+
- '<div class="stack">'+(nap?'<button type="button" class="btn nap-action" data-sleep-check="'+i+'">Log check</button><button type="button" class="btn quiet quiet-tight" data-nap-event="wake:'+i+'">Mark awake</button>':'<button type="button" class="btn" data-nap-event="start:'+i+'">Mark asleep</button>')+'</div></div>'+
- (!nap&&latest?'<div class="round-nap-summary"><span>Asleep <strong>'+clockTime(latest.start)+'</strong></span><span>Awake <strong>'+clockTime(latest.end)+'</strong></span><span class="pill">'+(latest.end-latest.start)+' min</span></div>':'')+
- (naps.length?'<details class="active-nap-log round-history"><summary>Today’s nap log · '+naps.length+(naps.length===1?' nap':' naps')+'</summary>'+timeline(i,naps)+'</details>':'')+'</article>';
+ const latest=naps.filter(n=>n.end!=null).at(-1);
+ const summary=nap?'Asleep since '+clockTime(nap.start):latest?'Awake since '+clockTime(latest.end):'Not yet slept';
+ const dueAt=nap?nextDue(nap):null;
+ const dueText=nap?(dueAt<state.now?'Check overdue · '+clockTime(dueAt):dueAt===state.now?'Check due now':'Check due '+clockTime(dueAt)):'';
+ const tone=nap?(dueAt<state.now?'nap-overdue':dueAt<=state.now+5?'nap-soon':''):'';
+ const historyLabel=nap?(last?'Last check '+clockTime(last.at):'Sleep history'):
+ latest?'Slept '+clockTime(latest.start)+'–'+clockTime(latest.end)+' · '+(latest.end-latest.start)+' min':'';
+ return '<article class="round-child"><div class="round-top">'+avatar(i)+'<div><strong class="round-name">'+names[i]+'</strong><p class="round-status">'+summary+'</p>'+(nap?'<p class="round-due '+tone+'">'+dueText+'</p>':'')+'</div>'+
+ (nap?'<button type="button" class="btn nap-action" aria-label="Log check for '+names[i]+'" data-sleep-check="'+i+'">Log check</button>':'<button type="button" class="btn" aria-label="Mark '+names[i]+' asleep" data-nap-event="start:'+i+'">Mark asleep</button>')+'</div>'+
+ (naps.length?'<div class="round-secondary '+(nap?'has-wake':'')+'"><details class="round-history"><summary aria-label="View sleep history for '+names[i]+'">'+historyLabel+'</summary>'+timeline(i,naps)+'</details>'+(nap?'<button type="button" class="btn quiet" aria-label="Mark '+names[i]+' awake" data-nap-event="wake:'+i+'">Mark awake</button>':'')+'</div>':'')+'</article>';
  }).join('')+'</section>');
 }
 function optionGroup(name,label,options){
