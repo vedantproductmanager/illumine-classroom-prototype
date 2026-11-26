@@ -7,7 +7,7 @@
 <title>Illumine · Classroom</title>
 <style>
 :root{--ink:#211934;--muted:#655e75;--purple:#5735bd;--subtle:#eee8fc;--stroke:#e6e0ef;--page:#f8f7fb;--white:#fff;--mint:#dff4e8;--green:#245c46;--peach:#ffeedb;--brown:#844a24}
-*{box-sizing:border-box}body{margin:0;background:#eae5f4;color:var(--ink);font:16px/1.42 system-ui,-apple-system,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:default}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #8861df;outline-offset:2px}h1,h2,p{margin:0}h1{font-size:clamp(1.9rem,7vw,2.6rem);letter-spacing:-.055em;line-height:1.06}h2{font-size:1.1rem;letter-spacing:-.025em}.app{width:min(100%,480px);margin:auto;min-height:100dvh;background:var(--page);display:flex;flex-direction:column}.bar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:58px;padding:4px 13px;background:var(--page);border-bottom:1px solid var(--stroke)}.brand{display:flex;align-items:center;gap:7px;font-weight:850;font-size:1.25rem;letter-spacing:-.05em}.brand span{display:grid;place-items:center;width:29px;height:29px;border-radius:9px;background:var(--purple);color:white;font-size:1rem}.main{flex:1;padding:15px 14px 23px}.headline{margin:7px 0 14px}.headline h1{margin-bottom:4px}.small{font-size:.83rem;color:var(--muted)}.label{font-size:.85rem;font-weight:730;display:block}.btn{border:1px solid var(--stroke);border-radius:11px;min-height:44px;padding:7px 11px;color:var(--ink);background:white;font-size:.88rem;font-weight:720}.primary{background:var(--purple);border-color:var(--purple);color:white}.quiet{background:transparent;border-color:transparent;color:var(--purple)}.wide{width:100%}.icon{width:44px;font-size:1.35rem;padding:0}.line,.between{display:flex;align-items:center;gap:7px}.between{justify-content:space-between}.stack{display:grid;gap:9px}.card{border:1px solid var(--stroke);border-radius:15px;background:white;overflow:hidden}.pad{padding:12px}.login{padding:25px 17px}.login-hero{background:#e9e0fb;border-radius:19px;padding:19px;margin-bottom:16px;position:relative;overflow:hidden}.login-hero h1{margin:9px 0 6px}.login-hero p{max-width:250px;color:#51436c}.hero-mark{position:absolute;right:12px;bottom:3px;font-size:4.4rem;color:#bba4eb;line-height:1;pointer-events:none}.text-field,textarea{width:100%;padding:10px 11px;min-height:44px;border:1px solid var(--stroke);border-radius:10px;background:#fff;color:var(--ink);display:block;margin-top:4px}textarea{min-height:64px}.notice,.error{padding:8px 10px;border-radius:9px;background:var(--subtle);color:#482d92;font-size:.83rem}.error{color:#902b46;background:#fce8ee}.quick{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px}.quick button{text-align:left;min-height:68px;padding:9px 10px}.nap-action{background:var(--subtle);border-color:#e3d7fa;color:#492c91}.group-action{background:var(--mint);border-color:#d5eadf;color:var(--green)}.quick small{display:block;font-weight:550;font-size:.72rem;margin-top:2px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.student{aspect-ratio:1;min-width:0;width:100%;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;text-align:center;border:1px solid var(--stroke);border-radius:15px;background:white;color:var(--ink);padding:6px;line-height:1.23}.student strong{font-size:clamp(.84rem,4vw,.99rem)}.student[aria-pressed=true]{border:2px solid var(--purple);background:#f0eafb}.select-mark{position:absolute;right:7px;top:7px;width:22px;height:22px;display:grid;place-items:center;border-radius:50%;border:1px solid #bcb2cd;background:white;color:var(--purple);font-size:.8rem}.avatar{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:#e9defb;color:#503389;font-weight:800;letter-spacing:-.025em}.avatar.hero{width:58px;height:58px;font-size:1.22rem}.shade1{background:#e2f1ea;color:#2c604b}.shade2{background:#f8e8d9;color:#854e29}.shade3{background:#e5ebff;color:#3c508d}.pill{display:inline-block;white-space:nowrap;padding:3px 7px;border-radius:20px;background:#eeebf3;color:#564d63;font-size:.7rem;font-weight:730}.asleep{background:var(--subtle);color:#4c328c}.awake{background:var(--mint);color:var(--green)}.no-nap{background:var(--peach);color:var(--brown)}.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:8px 0}.tabs button{padding-inline:3px;line-height:1.17;font-size:.8rem}.tabs button small{display:block;margin-top:3px;font-size:.66rem}.tabs [aria-pressed=true],.chosen{border-color:var(--purple);color:var(--purple);background:var(--subtle)}.row{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:8px 10px;min-height:47px;border-bottom:1px solid var(--stroke)}.row:last-child{border-bottom:0}.row .small{font-size:.75rem}.row .btn{flex-shrink:0}.section{margin-top:14px}.footer{position:sticky;bottom:0;z-index:2;background:var(--page);border-top:1px solid var(--stroke);padding:8px 14px calc(8px + env(safe-area-inset-bottom))}.progress{height:5px;background:var(--stroke);border-radius:10px;margin-bottom:9px;overflow:hidden}.progress span{display:block;height:100%;background:var(--purple)}.status-choice{width:100%;min-height:58px;text-align:left;font-size:1rem}.status-choice small{display:block;font-size:.76rem;font-weight:500;color:var(--muted);margin-top:2px}.media{width:100%;max-height:310px;display:block;object-fit:contain;background:#eee8fa}.media-preview{background:white;border:1px solid var(--stroke);border-radius:14px;overflow:hidden}.media-preview p{padding:8px 10px}.capture{min-height:108px;display:grid;place-items:center;text-align:center;background:#e9f5ee;border:1px solid #dbeee3;border-radius:15px;padding:10px}.capture .line{justify-content:center;flex-wrap:wrap}.review-strip{padding:5px 0}.review-strip p{font-size:.79rem;color:var(--muted);overflow-wrap:anywhere}.timeline-title{margin:13px 0 6px}.spacer{height:5px}dialog{position:fixed;inset:auto 0 0;margin:0 auto;width:min(100%,480px);max-width:none;background:var(--page);color:var(--ink);border:1px solid var(--stroke);border-radius:17px 17px 0 0;padding:14px 14px calc(14px + env(safe-area-inset-bottom));max-height:86dvh}dialog::backdrop{background:#21163366}.toast{position:fixed;bottom:70px;left:50%;transform:translateX(-50%);z-index:3;width:max-content;max-width:calc(100vw - 28px);padding:8px 10px;border-radius:10px;background:#362756;color:white;font-size:.84rem}.toast:empty,[hidden]{display:none!important}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}@media(min-width:481px){.app{box-shadow:0 0 50px #32234620}}@media(max-width:350px){.student .avatar{width:41px;height:41px}.quick small{font-size:.66rem}.btn{padding-inline:8px}}
+*{box-sizing:border-box}body{margin:0;background:#eae5f4;color:var(--ink);font:16px/1.42 system-ui,-apple-system,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:default}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #8861df;outline-offset:2px}h1,h2,p{margin:0}h1{font-size:clamp(1.9rem,7vw,2.6rem);letter-spacing:-.055em;line-height:1.06}h2{font-size:1.1rem;letter-spacing:-.025em}.app{width:min(100%,480px);margin:auto;min-height:100dvh;background:var(--page);display:flex;flex-direction:column}.bar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:58px;padding:4px 13px;background:var(--page);border-bottom:1px solid var(--stroke)}.brand{display:flex;align-items:center;gap:7px;font-weight:850;font-size:1.25rem;letter-spacing:-.05em}.brand span{display:grid;place-items:center;width:29px;height:29px;border-radius:9px;background:var(--purple);color:white;font-size:1rem}.main{flex:1;padding:15px 14px 23px}.headline{margin:7px 0 14px}.headline h1{margin-bottom:4px}.small{font-size:.83rem;color:var(--muted)}.label{font-size:.85rem;font-weight:730;display:block}.btn{border:1px solid var(--stroke);border-radius:11px;min-height:44px;padding:7px 11px;color:var(--ink);background:white;font-size:.88rem;font-weight:720}.primary{background:var(--purple);border-color:var(--purple);color:white}.quiet{background:transparent;border-color:transparent;color:var(--purple)}.wide{width:100%}.icon{width:44px;font-size:1.35rem;padding:0}.line,.between{display:flex;align-items:center;gap:7px}.between{justify-content:space-between}.stack{display:grid;gap:12px}.card{border:1px solid var(--stroke);border-radius:15px;background:white;overflow:hidden}.pad{padding:12px}.login{padding:25px 17px}.login-hero{background:#e9e0fb;border-radius:19px;padding:19px;margin-bottom:16px;position:relative;overflow:hidden}.login-hero h1{margin:9px 0 6px}.login-hero p{max-width:250px;color:#51436c}.hero-mark{position:absolute;right:12px;bottom:3px;font-size:4.4rem;color:#bba4eb;line-height:1;pointer-events:none}.text-field,textarea{width:100%;padding:12px;min-height:44px;border:1px solid var(--stroke);border-radius:10px;background:#fff;color:var(--ink);display:block;margin-top:8px}textarea{min-height:80px}.notice,.error{padding:8px 10px;border-radius:9px;background:var(--subtle);color:#482d92;font-size:.83rem}.error{color:#902b46;background:#fce8ee}.quick{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px}.quick button{text-align:left;min-height:68px;padding:9px 10px}.nap-action{background:var(--subtle);border-color:#e3d7fa;color:#492c91}.group-action{background:var(--mint);border-color:#d5eadf;color:var(--green)}.quick small{display:block;font-weight:550;font-size:.72rem;margin-top:2px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.student{aspect-ratio:1;min-width:0;width:100%;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;text-align:center;border:1px solid var(--stroke);border-radius:15px;background:white;color:var(--ink);padding:6px;line-height:1.23}.student strong{font-size:clamp(.84rem,4vw,.99rem)}.student[aria-pressed=true]{border:2px solid var(--purple);background:#f0eafb}.select-mark{position:absolute;right:7px;top:7px;width:22px;height:22px;display:grid;place-items:center;border-radius:50%;border:1px solid #bcb2cd;background:white;color:var(--purple);font-size:.8rem}.avatar{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:#e9defb;color:#503389;font-weight:800;letter-spacing:-.025em}.avatar.hero{width:58px;height:58px;font-size:1.22rem}.shade1{background:#e2f1ea;color:#2c604b}.shade2{background:#f8e8d9;color:#854e29}.shade3{background:#e5ebff;color:#3c508d}.pill{display:inline-block;white-space:nowrap;padding:3px 7px;border-radius:20px;background:#eeebf3;color:#564d63;font-size:.7rem;font-weight:730}.asleep{background:var(--subtle);color:#4c328c}.awake{background:var(--mint);color:var(--green)}.no-nap{background:var(--peach);color:var(--brown)}.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:8px 0}.tabs button{padding-inline:3px;line-height:1.17;font-size:.8rem}.tabs button small{display:block;margin-top:3px;font-size:.66rem}.tabs [aria-pressed=true],.chosen{border-color:var(--purple);color:var(--purple);background:var(--subtle)}.row{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:8px 10px;min-height:47px;border-bottom:1px solid var(--stroke)}.row:last-child{border-bottom:0}.row .small{font-size:.75rem}.row .btn{flex-shrink:0}.section{margin-top:16px}.footer{position:sticky;bottom:0;z-index:2;background:var(--page);border-top:1px solid var(--stroke);padding:8px 14px calc(8px + env(safe-area-inset-bottom))}.progress{height:5px;background:var(--stroke);border-radius:10px;margin-bottom:9px;overflow:hidden}.progress span{display:block;height:100%;background:var(--purple)}.status-choice{width:100%;min-height:58px;text-align:left;font-size:1rem}.status-choice small{display:block;font-size:.76rem;font-weight:500;color:var(--muted);margin-top:2px}.media{width:100%;max-height:310px;display:block;object-fit:contain;background:#eee8fa}.media-preview{background:white;border:1px solid var(--stroke);border-radius:14px;overflow:hidden}.media-preview p{padding:8px 10px}.capture{min-height:108px;display:grid;place-items:center;text-align:center;background:#e9f5ee;border:1px solid #dbeee3;border-radius:15px;padding:10px}.capture .line{justify-content:center;flex-wrap:wrap}.review-strip{padding:5px 0}.review-strip p{font-size:.79rem;color:var(--muted);overflow-wrap:anywhere}.timeline-title{margin:13px 0 6px}.spacer{height:5px}dialog{position:fixed;inset:auto 0 0;margin:0 auto;width:min(100%,480px);max-width:none;background:var(--page);color:var(--ink);border:1px solid var(--stroke);border-radius:17px 17px 0 0;padding:14px 14px calc(14px + env(safe-area-inset-bottom));max-height:86dvh}dialog::backdrop{background:#21163366}.toast{position:fixed;bottom:70px;left:50%;transform:translateX(-50%);z-index:3;width:max-content;max-width:calc(100vw - 28px);padding:8px 10px;border-radius:10px;background:#362756;color:white;font-size:.84rem}.toast:empty,[hidden]{display:none!important}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}@media(min-width:481px){.app{box-shadow:0 0 50px #32234620}}@media(max-width:350px){.student .avatar{width:41px;height:41px}.quick small{font-size:.66rem}.btn{padding-inline:8px}}
 
 /* Classroom sections and sleep-check states */
 .class-section{margin-top:19px}.class-section h2{margin:0 0 8px}.class-section .quick{margin-bottom:0}
@@ -18,13 +18,13 @@
 .nap-choice input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
 .nap-choice span{min-height:44px;display:grid;place-items:center;text-align:center;background:white;border:1px solid var(--stroke);border-radius:10px;padding:6px;font-size:.8rem;font-weight:700}
 .nap-choice input:checked+span{border-color:var(--purple);background:var(--subtle);color:var(--purple)}
-.nap-choice input:focus-visible+span{outline:3px solid #8861df;outline-offset:2px}
+.nap-choice input:focus-visible+span{outline:2px solid #8861df;outline-offset:2px}
 .nap-fields{border:0;padding:0;margin:0;min-width:0}.nap-fields legend{font-size:.85rem;font-weight:750;padding:0}
 .nap-time{display:flex;align-items:center;justify-content:space-between;gap:6px}.nap-time .text-field{width:auto;margin:0}
 .nap-inline{display:flex;align-items:center;gap:4px;flex-wrap:wrap}.nap-log{display:grid;gap:5px}.nap-log .row{align-items:flex-start}
 .nap-sub{margin:14px 0 6px}.quiet-tight{padding-inline:5px}.nap-due-summary{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
 /* Mobile layout, color, and component rules */
-:root{--ink:#241936;--muted:#655b73;--purple:#5733aa;--subtle:#efe8fc;--stroke:#e6e0ed;--page:#f9f8fb;--mint:#e4f3eb;--green:#235c47;--peach:#f8eadb;--brown:#784a28;--gutter:16px;--shell:440px}
+:root{--ink:#241936;--muted:#655b73;--purple:#5733aa;--subtle:#efe8fc;--stroke:#ebe6f0;--page:#f9f8fb;--mint:#e4f3eb;--green:#235c47;--peach:#f8eadb;--brown:#784a28;--gutter:16px;--shell:440px}
 body{background:#eeeaf4}
 .app{width:min(100%,var(--shell))}
 .bar,.main,.footer{width:100%}
@@ -34,19 +34,19 @@ body{background:#eeeaf4}
 .bar-title{justify-self:center;min-width:0;text-align:center;font-size:.91rem;font-weight:750;line-height:1.15}
 .brand{font-size:1.24rem;letter-spacing:-.065em}.brand span{width:25px;height:25px;border-radius:8px}
 .bar .quiet{padding-inline:0;white-space:nowrap}.bar .icon{background:#fff;border-color:var(--stroke);font-size:1rem}
-.main{padding:17px var(--gutter) 24px}
-.headline{text-align:center;margin:5px 0 17px}.headline h1{font-size:clamp(1.7rem,7.5vw,2.35rem);line-height:1.08;letter-spacing:-.045em;margin:0 0 6px}.headline p{max-width:32ch;margin-inline:auto;line-height:1.4}
+.main{padding:16px var(--gutter) 24px}
+.headline{text-align:center;margin:5px 0 17px}.headline h1{font-size:1.65rem;line-height:1.2;letter-spacing:-.035em;margin:0 0 6px}.headline p{max-width:32ch;margin-inline:auto;line-height:1.4}
 .card,.media-preview{border-radius:16px}
 .btn{border-radius:11px;line-height:1.22}.primary{min-height:48px}.btn.primary:active{background:#442583}
-.login{padding-top:24px}.login-inner{max-width:350px;margin-inline:auto}
-.login-hero{background:#eee7fa;border:1px solid #e8dff7;border-radius:20px;padding:21px 14px 19px;text-align:center;margin-bottom:13px}
-.login-hero h1{font-size:clamp(1.8rem,8vw,2.3rem);margin:0 0 6px}.login-hero p{max-width:29ch;margin-inline:auto;font-size:.88rem}
-.login-form{padding:14px;background:#fff;border:1px solid var(--stroke);border-radius:16px}
+.login{padding-top:20px}.login-inner{max-width:350px;margin-inline:auto}
+.login-hero{background:#f2edf9;border:1px solid #ece5f5;border-radius:16px;padding:20px 16px;text-align:center;margin-bottom:16px}
+.login-hero h1{font-size:1.5rem;line-height:1.2;letter-spacing:-.035em;font-weight:750;max-width:19ch;margin:0 auto 10px}.login-hero p{max-width:32ch;margin-inline:auto;font-size:.875rem;line-height:1.5;color:var(--muted)}
+.login-form{padding:16px;background:#fff;border:1px solid var(--stroke);border-radius:16px}
 .login-form .between{flex-wrap:wrap;column-gap:3px}.login-form .quiet{padding-inline:4px}.login-form .text-field{background:#fbfaff}
 .classroom .headline{margin:10px 0 16px}
 .quick{gap:8px;margin-bottom:13px}
 .quick button{min-height:67px;text-align:center;padding:8px 6px;font-size:.9rem;border-radius:14px}.quick small{font-size:.75rem}
-.grid{gap:9px}
+.grid{gap:8px}
 .student{border-radius:16px;gap:7px;padding:8px;background:#fff}
 .student .avatar{width:46px;height:46px;border-radius:14px}
 .student strong{font-size:clamp(.85rem,4vw,1rem);line-height:1.18}
@@ -94,7 +94,7 @@ body{background:#eeeaf4}
 .profile-scroll{overflow:auto;overscroll-behavior:contain;min-height:0;padding:1px 1px calc(12px + env(safe-area-inset-bottom))}
 .profile-scroll .grid{gap:8px}
 .profile-scroll .student{aspect-ratio:auto;min-height:106px;justify-content:center;align-items:flex-start;text-align:left;padding:10px;gap:8px;border-radius:14px;border-color:#e9e3ef;box-shadow:0 1px 2px #2d1d4710}
-.profile-scroll .student:hover{border-color:#bca9df}
+.profile-scroll .student:hover{border-color:#d0c1e7}
 .profile-scroll .student .avatar{width:44px;height:44px;border-radius:13px}
 .profile-portrait{object-fit:cover;display:block}
 .profile-scroll .student strong{font-size:.94rem}
@@ -140,18 +140,18 @@ body{background:#eeeaf4}
 .profile-alert .small{color:#7d2240;font-size:.73rem;font-weight:720}
 .student-hero{display:grid;justify-items:center;background:#f2edf9;border:1px solid #ebe2f5;border-radius:17px;margin-top:10px;padding:13px 11px 10px;text-align:center}
 .student-hero .student-photo,.student-hero .avatar.hero{width:76px;height:76px;border-radius:20px;object-fit:cover;border:2px solid white}
-.student-hero h1{margin:8px 0 9px;font-size:clamp(1.65rem,7vw,2.05rem)}
+.student-hero h1{margin:12px 0;font-size:1.65rem;line-height:1.2}
 .profile-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;margin:0;border-top:1px solid #e7deef;padding-top:8px;gap:8px}
 .profile-facts dt{color:var(--muted);font-size:.72rem}
 .profile-facts dd{margin:2px 0 0;font-size:.84rem;font-weight:710}
-.profile-action-group{margin-top:11px}
+.profile-action-group{margin-top:16px}
 .profile-action-group h2{font-size:1rem;margin-bottom:6px}
 .profile-actions{margin:0;gap:8px}
 .profile-actions .quick-link{min-width:0}
 .profile-actions .secondary-action{background:#f3f0f7;border-color:#e9e3ef;color:#514460}
-.meal-history{margin-top:13px}
+.meal-history{margin-top:16px}
 .meal-history h2{margin-bottom:6px}
-.meal-history .history-row{padding:7px 9px}
+.meal-history .history-row{padding:10px 12px}
 .meal-history .history-row summary{min-height:40px}
 .meal-day-menus{display:grid;gap:7px;padding:4px 0 6px}
 .meal-menu-detail p{padding:8px 9px;font-size:.84rem}
@@ -160,7 +160,7 @@ body{background:#eeeaf4}
 .student-photo{display:block}
 
 /* Student care, seven-day nap history, and the activity feed */
-.care-card{margin-top:9px;padding:10px}
+.care-card{margin-top:12px;padding:12px}
 .care-card h2{font-size:1rem;margin-bottom:7px}
 .care-facts{display:grid;grid-template-columns:1fr 1fr;gap:0 8px;margin:0}
 .care-facts>div{padding:6px 2px;border-top:1px solid var(--stroke)}
@@ -171,7 +171,7 @@ body{background:#eeeaf4}
 .care-allergy dt{color:#7d2240;font-weight:680}
 .care-contact{display:block;font-weight:550;color:var(--muted);font-size:.8rem}
 .history-card{margin-bottom:10px}
-.history-row{padding:8px 9px;border-bottom:1px solid var(--stroke)}
+.history-row{padding:10px 12px;border-bottom:1px solid var(--stroke)}
 .history-row:last-child{border-bottom:0}
 .history-row summary{display:flex;align-items:center;justify-content:space-between;gap:6px;cursor:pointer;font-size:.88rem;min-height:32px;list-style:none}
 .history-row summary::-webkit-details-marker{display:none}
@@ -180,9 +180,9 @@ body{background:#eeeaf4}
 .history-row summary span:first-child{flex:1}
 .history-row summary .small{display:block}
 .history-row .nap-log{margin-top:5px}
-.feed{display:grid;gap:11px}
+.feed{display:grid;gap:12px}
 .feed-item{border:1px solid var(--stroke);border-radius:15px;overflow:hidden;background:white}
-.feed-author{display:flex;align-items:center;gap:7px;padding:8px 10px}
+.feed-author{display:flex;align-items:center;gap:8px;padding:12px}
 .feed-avatar{width:31px;height:31px;border-radius:10px;background:var(--subtle);color:var(--purple);display:grid;place-items:center;font-size:.68rem;font-weight:780;flex:none}
 .feed-author strong,.feed-author small{display:block}
 .feed-remove{margin-left:auto;flex:none;padding-inline:5px;color:#8d3450;font-size:.76rem}
@@ -190,25 +190,25 @@ body{background:#eeeaf4}
 .feed-author strong{font-size:.85rem}
 .feed-author small{color:var(--muted);font-size:.72rem}
 .feed-media .media{aspect-ratio:4/3;object-fit:cover;max-height:none}
-.feed-caption{padding:7px 10px 10px;font-size:.86rem}
+.feed-caption{padding:12px;font-size:.86rem}
 .feed-caption strong{display:block;margin-bottom:3px}
 
 /* Meal sharing and individual intake */
 .meal-action{background:#faf0df;color:#754823;border-color:#f0e3cc}
-.lunch-tabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:#eeeaf4;border-radius:12px;padding:4px;margin:0 0 12px}
+.lunch-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#eeeaf4;border-radius:12px;padding:6px;margin:0 0 16px}
 .lunch-tabs .btn{background:transparent;border-color:transparent}
 .lunch-tabs .btn[aria-pressed=true]{background:white;border-color:var(--stroke);color:var(--purple)}
-.lunch-intake-row{padding:9px 10px;border-bottom:1px solid var(--stroke)}
+.lunch-intake-row{padding:12px;border-bottom:1px solid var(--stroke)}
 .lunch-intake-row:last-child{border-bottom:0}
-.lunch-intake-row .meal-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:6px 0 0}
-.lunch-intake-row .meal-actions .btn{padding:4px 2px;font-size:.75rem;line-height:1.14}
-.lunch-photo-actions{justify-content:center;flex-wrap:wrap}
-.meal-actions{display:flex;flex-wrap:wrap;gap:5px}
-.meal-actions .btn[aria-pressed=true]{background:#f7e9d1;color:#754823;border-color:#ceab77}
+.lunch-intake-row .meal-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:12px 0 0}
+.lunch-intake-row .meal-actions .btn{padding:8px 4px;font-size:.75rem;line-height:1.3}
+.lunch-photo-actions{justify-content:center;flex-wrap:wrap;gap:10px}
+.meal-actions{display:flex;flex-wrap:wrap;gap:8px}
+.meal-actions .btn[aria-pressed=true]{background:#f7e9d1;color:#754823;border-color:#d9bd94}
 .meal-share-photo .media{aspect-ratio:16/9;max-height:210px}
-.intake-panel{padding:11px}
+.intake-panel{padding:12px}
 .intake-panel h2{margin-bottom:3px}
-.intake-panel .meal-actions{margin-top:7px}
+.intake-panel .meal-actions{margin-top:12px}
 .intake-panel .meal-actions .btn{flex:1 1 auto}
 .care-facts .care-allergy{background:#fcfaf6;border:0;border-top:1px solid var(--stroke);border-radius:0;padding:6px 2px;margin:0;color:var(--ink)}
 .care-allergy dt{color:#775532;font-weight:700}
@@ -217,13 +217,13 @@ body{background:#eeeaf4}
 .meal-allergy .small{color:#775532}
 
 /* Nap record groups controls with the corresponding day. */
-.active-nap-day{background:#f2ecfb;border-color:#e4d9f5;padding:11px;margin-bottom:8px}
+.active-nap-day{background:#f2ecfb;border-color:#e7def4;padding:12px;margin-bottom:12px}
 .active-nap-day .nap-inline{margin:8px 0 0}
 .active-nap-day .nap-inline .btn{flex:1}
 .active-nap-log{margin-top:8px;border-top:1px solid #e4d9f5;padding-top:2px}
 .active-nap-log summary{cursor:pointer;color:var(--purple);font-size:.86rem;font-weight:750;padding:6px 0;min-height:36px}
 .active-nap-log .nap-log{margin-top:2px}
-.nap-log .check-row{display:block;padding:8px 9px}
+.nap-log .check-row{display:block;padding:10px 12px}
 .check-row .between{align-items:flex-start;flex-wrap:wrap;gap:4px}
 .check-meta{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3px 7px;margin-top:4px;color:var(--muted);font-size:.74rem;line-height:1.25}
 .check-meta span:nth-child(even){text-align:right}
@@ -315,6 +315,31 @@ dialog{inset:auto auto var(--overlay-bottom,12px) var(--overlay-left,12px);margi
 /* Keep the meal description label clear of its keyboard-focus indicator. */
 #meal-description{margin-top:10px}
 #meal-description:focus-visible{outline:2px solid #8861df;outline-offset:2px}
+
+.round-child{border-bottom:1px solid var(--stroke);padding-bottom:8px}
+.round-child:last-child{border-bottom:0}
+.round-child>.nap-row{border-bottom:0}
+.round-nap-summary{display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;margin:0 10px;padding:8px 10px;background:var(--subtle);border-radius:10px;font-size:.76rem;color:var(--muted)}
+.round-nap-summary strong{color:var(--ink)}
+.round-history{margin:6px 10px 0;padding-top:0}
+.round-history summary{font-size:.78rem}
+
+.meal-recipient{text-align:left;min-height:52px;padding:10px;line-height:1.35}
+.meal-recipient small{display:block;font-size:.7rem;color:var(--muted);margin-top:4px}
+.meal-recipient[aria-pressed=true]{background:var(--subtle);border-color:#c9b7e8;color:var(--purple)}
+
+/* Shared spacing rhythm: 8px between controls, 12px within cards, 16px between sections. */
+.footer{display:flex;flex-direction:column;gap:8px;padding-top:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom))}
+.footer>.btn{flex-shrink:0}
+.card.pad>h2+.small{margin-top:6px}
+.card.pad>.line+.grid{margin-top:8px}
+.card.pad>.feed-recipients{margin-top:12px;padding:10px 0 0}
+.card.pad>.feed-recipients p{margin-top:6px;line-height:1.5}
+.capture{padding:16px}
+.capture .section{margin-top:12px}
+.nap-choices{gap:8px;margin-top:8px}
+.nap-inline{gap:8px}
+.profile-action-group h2,.meal-history h2,.sent-posts h2{margin-bottom:8px}
 </style>
 </head>
 <body>
@@ -366,7 +391,7 @@ const sampleMenus={
  1:{caption:'Salad, beans, roasted vegetables, and bread.',photo:true},
  3:{caption:'Vegetable soup, bread, and sliced apples.'}
 };
-const emptyMeal=()=>({media:null,foods:new Set(),description:''});
+const emptyMeal=()=>({media:null,foods:new Set(),description:'',selected:new Set(names.map((_,i)=>i))});
 const demoDay=Date.UTC(2026,10,26);
 const seededActivities=[
  {id:'sample-blocks',daysAgo:2,heading:'Building together',caption:'Chandler chose the blue blocks and worked with a friend to build a tower.',media:{kind:'image',url:'sample-block-building.jpg',name:'Hands building a colorful tower with wooden blocks'}},
@@ -456,7 +481,7 @@ function tiles(select=false){
  }).join('')+'</div>';
 }
 function login(){
- return header()+ '<div class="main login"><div class="login-inner"><section class="login-hero"><h1>Teacher sign in</h1><p>Open your classroom to record naps and share the day with families.</p></section>'+
+ return header()+ '<div class="main login"><div class="login-inner"><section class="login-hero"><h1>Welcome to your classroom</h1><p>Manage daily routines, keep student records up to date, and stay connected with families.</p></section>'+
  '<form id="login-form" class="stack login-form"><label class="label">Email<input class="text-field" type="email" name="email" value="'+email+'" required autocomplete="username"></label>'+
  '<label class="label">Password<input class="text-field" type="password" name="password" value="'+password+'" required autocomplete="current-password"></label>'+
  '<div class="small between"><span>Demo credentials are prefilled.</span>'+button('Show password','toggle-password','btn quiet')+'</div><p id="login-error" class="error" hidden>Use the prefilled demo email and password.</p><button class="btn primary wide">Sign in</button></form></div></div>';
@@ -629,33 +654,56 @@ function mealCaption(draft){
  const menu=[...draft.foods].join(', ');
  return [menu,draft.description.trim()].filter(Boolean).join(' · ');
 }
+function mealReady(){const d=state.mealDraft;return d.selected.size>0&&!!(d.media||mealCaption(d))}
+function mealReviewButton(){
+ const btn=document.querySelector('[data-go="confirm-meal"]');
+ if(btn){btn.disabled=!mealReady();btn.textContent='Review for '+state.mealDraft.selected.size+' families'}
+}
+function sharedMealsToday(){
+ const posts=state.updates.filter(u=>u.kind==='meal');
+ const covered=new Set(posts.flatMap(u=>u.selected));
+ return '<section class="section"><div class="between"><h2>Shared today</h2><span class="pill">'+covered.size+' of '+names.length+' families</span></div>'+
+ (posts.length?'<div class="stack section">'+posts.map(u=>'<article class="card pad">'+
+ '<div class="between"><strong>Lunch menu</strong><span class="pill awake">Shared</span></div>'+
+ '<p class="small">'+esc(shareDate.format(new Date(u.at)))+' · '+esc(u.by)+'</p>'+
+ (u.media?'<div class="media-preview meal-share-photo section">'+mediaPreview(u.media)+'</div>':'')+
+ (u.caption?'<p class="section">'+esc(u.caption)+'</p>':'')+
+ '<details class="feed-recipients"><summary>'+u.selected.length+' families</summary><p>'+u.selected.map(i=>names[i]).join(', ')+'</p></details></article>').join('')+'</div>':'<p class="small section">No lunch menu shared yet.</p>')+
+ (covered.size&&covered.size<names.length?'<p class="small section">Not shared yet: '+names.filter((_,i)=>!covered.has(i)).join(', ')+'</p>':'')+'</section>';
+}
+function mealFamilyPicker(){
+ const d=state.mealDraft;
+ return '<section class="card pad section"><h2>Share with</h2><p class="small">Choose the children who received this meal. Share a separate menu for any adjustments.</p><div class="line section">'+
+ '<button class="btn quiet" type="button" data-meal-select="all">Select all</button><button class="btn quiet" type="button" data-meal-select="none">Clear</button></div><div class="grid">'+
+ names.map((name,i)=>'<button type="button" class="btn meal-recipient" data-meal-child="'+i+'" aria-pressed="'+d.selected.has(i)+'">'+name+(childDetails[i]?.allergy?'<small>Allergy: '+esc(childDetails[i].allergy)+'</small>':'')+'</button>').join('')+'</div></section>';
+}
 function mealShare(){
- const d=state.mealDraft,menu=state.mealTab==='menu',canSend=!!(d.media||mealCaption(d));
+ const d=state.mealDraft,menu=state.mealTab==='menu',canSend=mealReady();
  const tabs='<nav class="lunch-tabs" aria-label="Lunch tasks"><button type="button" class="btn" data-meal-tab="menu" aria-pressed="'+menu+'">Share menu</button><button type="button" class="btn" data-meal-tab="intake" aria-pressed="'+!menu+'">Record intake</button></nav>';
  const picker='<div class="line lunch-photo-actions">'+button('Take photo','photo')+button('Choose photo','meal-file')+button('Use sample photo','meal-sample','btn quiet')+'</div>';
  const menuBody=(d.media?'<div class="media-preview meal-share-photo">'+mediaPreview(d.media)+'</div><div class="section">'+picker+'</div>':
  '<div class="capture"><div><h2>Add a meal photo</h2><div class="section">'+picker+'</div></div></div>')+
  '<section class="card pad section"><h2>What’s on the menu?</h2><div class="meal-actions section" aria-label="Menu options">'+foodOptions.map(v=>'<button type="button" class="btn" data-food="'+v+'" aria-pressed="'+d.foods.has(v)+'">'+v+'</button>').join('')+'</div>'+
- '<label class="label section" for="meal-description">Description <span class="small">optional</span></label><textarea id="meal-description" maxlength="240" placeholder="Add any other items or a short note.">'+esc(d.description)+'</textarea></section>';
+ '<label class="label section" for="meal-description">Description <span class="small">optional</span></label><textarea id="meal-description" maxlength="240" placeholder="Add any other items or a short note.">'+esc(d.description)+'</textarea></section>'+mealFamilyPicker()+sharedMealsToday();
  const intakeBody='<section><div class="between"><h2>Lunch intake</h2><span class="small">'+Object.keys(state.mealIntake).length+' of '+names.length+' recorded</span></div>'+
  '<div class="card section">'+names.map((name,i)=>'<article class="lunch-intake-row"><div class="between"><div class="line">'+avatar(i)+'<strong>'+name+'</strong></div>'+pill(state.mealIntake[i]?.status)+'</div>'+intakeButtons(i)+'</article>').join('')+'</div></section>';
- return header('Meal status','classroom')+wrap(title('Today’s lunch',menu?'Share the menu with all Willow Room families.':'Record how much each child ate.')+tabs+(menu?menuBody:intakeBody))+
- (menu?foot('<button type="button" class="btn primary wide" data-go="confirm-meal" '+(canSend?'':'disabled')+'>Review for all '+names.length+' families</button>'):'');
+ return header('Meal status','classroom')+wrap(title('Today’s lunch',menu?'Share what each child was served.':'Record how much each child ate.')+tabs+(menu?menuBody:intakeBody))+
+ (menu?foot('<button type="button" class="btn primary wide" data-go="confirm-meal" '+(canSend?'':'disabled')+'>Review for '+d.selected.size+' families</button>'):'');
 }
 function confirmMeal(){
  const d=state.mealDraft,caption=mealCaption(d);
- if(!d.media&&!caption)return;
+ if(!mealReady())return;
  dialog.innerHTML='<div class="between"><h2 id="dialog-title">Share today’s lunch?</h2><button type="button" class="btn icon" data-go="close" aria-label="Close">×</button></div>'+
- '<p class="small section">All '+names.length+' Willow Room families will receive this menu.</p>'+
+ '<p class="small section">'+d.selected.size+' families will receive this menu: '+[...d.selected].map(i=>names[i]).join(', ')+'.</p>'+
  (d.media?'<div class="media-preview meal-share-photo section">'+mediaPreview(d.media)+'</div>':'')+
  (caption?'<p class="section">'+esc(caption)+'</p>':'')+
- '<div class="section">'+button('Share with all '+names.length+' families','send-meal','btn primary wide')+'</div>';
+ '<div class="section">'+button('Share with '+d.selected.size+' families','send-meal','btn primary wide')+'</div>';
  dialog.showModal();
 }
 function sendMeal(){
  const d=state.mealDraft,caption=mealCaption(d);
- if(!d.media&&!caption)return;
- const entry={id:++state.seq,kind:'meal',heading:'Today’s lunch',media:d.media,caption,selected:names.map((_,i)=>i),at:new Date().toISOString(),by:teacher};
+ if(!mealReady())return;
+ const entry={id:++state.seq,kind:'meal',heading:'Today’s lunch',media:d.media,caption,selected:[...d.selected],at:new Date().toISOString(),by:teacher};
  state.updates.unshift(entry);
  state.sent=entry;
  state.mealDraft=emptyMeal();
@@ -666,10 +714,13 @@ function roster(){
  return header('','classroom')+wrap(title('Nap rounds','Willow Room · 15-minute demo policy')+
  '<div class="between nap-rollup"><h2>Student nap status</h2><time class="small" datetime="'+inputTime(state.now)+'">Current time · '+clockTime(state.now)+'</time></div>'+
  '<section class="card">'+ordered().map(i=>{
- const nap=activeNap(i),last=nap?.checks.at(-1);
- return '<div class="row nap-row"><div class="line">'+avatar(i)+'<div><strong>'+names[i]+'</strong>'+
- (nap?'<p class="small">'+(last?'Checked '+clockTime(last.at):'Asleep since '+clockTime(nap.start))+'</p>'+dueLabel(nap):'<p class="small">'+(state.sessions[i].length?'Awake':'No nap started')+'</p>')+'</div></div>'+
- '<div class="stack">'+(nap?'<button type="button" class="btn nap-action" data-sleep-check="'+i+'">Log check</button><button type="button" class="btn quiet quiet-tight" data-nap-event="wake:'+i+'">Mark awake</button>':'<button type="button" class="btn" data-nap-event="start:'+i+'">Mark asleep</button>')+'</div></div>';
+ const naps=state.sessions[i],nap=activeNap(i),last=nap?.checks.at(-1);
+ const completed=naps.filter(n=>n.end!=null),latest=completed.at(-1);
+ const summary=nap?(last?'Checked '+clockTime(last.at):'Asleep since '+clockTime(nap.start)):(latest?'Awake · Woke at '+clockTime(latest.end):'No nap started');
+ return '<article class="round-child"><div class="row nap-row"><div class="line">'+avatar(i)+'<div><strong>'+names[i]+'</strong><p class="small">'+summary+'</p>'+(nap?dueLabel(nap):'')+'</div></div>'+
+ '<div class="stack">'+(nap?'<button type="button" class="btn nap-action" data-sleep-check="'+i+'">Log check</button><button type="button" class="btn quiet quiet-tight" data-nap-event="wake:'+i+'">Mark awake</button>':'<button type="button" class="btn" data-nap-event="start:'+i+'">Mark asleep</button>')+'</div></div>'+
+ (!nap&&latest?'<div class="round-nap-summary"><span>Asleep <strong>'+clockTime(latest.start)+'</strong></span><span>Awake <strong>'+clockTime(latest.end)+'</strong></span><span class="pill">'+(latest.end-latest.start)+' min</span></div>':'')+
+ (naps.length?'<details class="active-nap-log round-history"><summary>Today’s nap log · '+naps.length+(naps.length===1?' nap':' naps')+'</summary>'+timeline(i,naps)+'</details>':'')+'</article>';
  }).join('')+'</section>');
 }
 function optionGroup(name,label,options){
@@ -772,7 +823,7 @@ function sent(){
  const u=state.sent,n=u.selected.length;
  return header(u.kind==='meal'?'Meal status':'Group update','classroom')+wrap(title('Shared with '+n+(n===1?' family':' families'),'Demo activity record')+
  '<div class="media-preview">'+mediaPreview(u.media)+(u.caption?'<p>'+esc(u.caption)+'</p>':'')+'</div><section class="section card">'+u.selected.map(i=>'<button type="button" class="row btn wide" data-sent-student="'+i+'"><span class="line">'+avatar(i)+'<span>'+names[i]+'</span></span><span aria-hidden="true">›</span></button>').join('')+'</section>')+
- foot((u.kind==='meal'?button('Record intake','meal-intake','btn primary wide'):'')+button('Back to classroom','classroom',u.kind==='meal'?'btn quiet wide':'btn primary wide'));
+ foot((u.kind==='meal'?button('Record intake','meal-intake','btn primary wide')+button('View shared menus','meal-share','btn wide'):'')+button('Back to classroom','classroom',u.kind==='meal'?'btn quiet wide':'btn primary wide'));
 }
 function render(){app.classList.toggle('classroom',state.view==='classroom');app.innerHTML=({login,classroom,student,studentDetail,familyActivity,mealStatus,mealShare,rounds:roster,sleepCheck,media,recipients,sent}[state.view])()}
 function chooseSleepCheck(i,source=state.view){
@@ -853,7 +904,7 @@ document.addEventListener('input',e=>{
  if(e.target.id==='caption')state.draft.caption=e.target.value;
  if(e.target.id==='meal-description'){
   state.mealDraft.description=e.target.value;
-  document.querySelector('[data-go=confirm-meal]').disabled=!(state.mealDraft.media||mealCaption(state.mealDraft));
+  mealReviewButton();
  }
 });
 for(const id of ['photo','video','media-file','meal-file']){
@@ -868,6 +919,15 @@ for(const id of ['photo','video','media-file','meal-file']){
 document.addEventListener('click',event=>{
  const el=event.target.closest('button');if(!el||el.disabled)return;
  const d=el.dataset;
+ if(d.mealChild!=null||d.mealSelect!=null){
+  const selected=state.mealDraft.selected;
+  if(d.mealSelect==='all')names.forEach((_,i)=>selected.add(i));
+  else if(d.mealSelect==='none')selected.clear();
+  else {const i=Number(d.mealChild);if(selected.has(i))selected.delete(i);else selected.add(i)}
+  app.querySelectorAll('[data-meal-child]').forEach(b=>b.setAttribute('aria-pressed',String(selected.has(Number(b.dataset.mealChild)))));
+  mealReviewButton();return;
+ }
+
  if(d.deleteGroup!=null)return confirmDeleteGroupPost(Number(d.deleteGroup));
  if(d.confirmDeleteGroup!=null)return deleteGroupPost(Number(d.confirmDeleteGroup));
  if(d.removeActivity!=null)return confirmRemoveActivity(d.removeActivity);
@@ -883,7 +943,7 @@ document.addEventListener('click',event=>{
   const foods=state.mealDraft.foods;
   if(foods.has(d.food))foods.delete(d.food);else foods.add(d.food);
   el.setAttribute('aria-pressed',String(foods.has(d.food)));
-  document.querySelector('[data-go=confirm-meal]').disabled=!(state.mealDraft.media||mealCaption(state.mealDraft));
+  mealReviewButton();
   return;
  }
  if(d.mealTab!=null){state.mealTab=d.mealTab;return openView('mealShare')}
